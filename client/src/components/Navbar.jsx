@@ -29,26 +29,26 @@ const Navbar = () => {
        `
     }
     >
-      <div className="container md:mx- ">
+      <div className="w-full ">
+
         <div className="md:flex hidden  items-center justify-between">
-          <div className="text-gray-800 text-xl font-bold font-roboto">
+
+          <div className="text-gray-800 ml-20 text-xl font-bold font-roboto">
             <Link to="/">LOGO</Link>
           </div>
 
 
 
-          <div className={`hidden md:flex   `}>
+          <div className={`hidden md:flex  mr-12 `}>
+
             <Link to="/" className={`text-gray-800 text-lg ${hoverbg}`}>
-              {/* <div className="icon"><IoHomeOutline />
-</div> */}
              <h1> Home</h1>
             </Link>
+
             <Link to="/about" className={`text-gray-800 text-lg ${hoverbg}`}>
               About
             </Link>
-            {/* <Link to="/services" className={`text-gray-800 text-lg ${hoverbg}`}>
-              Services
-            </Link> */}
+
             <Link to="/contact" className={`text-gray-800 text-lg ${hoverbg}`}>
               Contact
             </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
             {isOpen ? (
             <div className="md:hidden mx-0 top-0 left-0 absolute h-screen w-screen bg-gray-800 z-[100]">
                 
-            <div className="text-white p-4 text-2xl mb-0 pb-0 font-bold flex justify-between">
+            <div className="text-white mt-3 p-4 text-2xl mb-0 pb-0 font-bold flex justify-between">
             <Link to="/">LOGO</Link>
             <IoMdClose size={'2rem'} onClick={toggleNavbar}/>
           </div>
