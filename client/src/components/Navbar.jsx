@@ -19,13 +19,13 @@ const Navbar = () => {
 
 
 
-  let hoverbg = 'focus:underline hover:underline decoration-solid decoration-4 decoration-rounded-lg decoration-primary underline-offset-[15px] h-full py-4 px-4';
+  let navhover = "after:absolute after:content-[''] after:bg-[#0099ff] after:h-[3px] after:w-[0%] after:left-0 after:bottom-[-5px] tracking-[1px]  after:rounded hover:after:w-[100%] after:duration-300"
 
   return (
     
     <nav
       className={`h-[5rem]  top-0 font-poppins delay-150 ease-in-out  flex items-center z-[100]
-      mx-0 transition-all  bg-white   shadow duration-300
+      mx-0 transition-all  bg-white  w-full  shadow-lg duration-300
        `
     }
     >
@@ -39,18 +39,22 @@ const Navbar = () => {
 
 
 
-          <div className={`hidden md:flex  mr-12 `}>
+          <div className={`hidden md:flex  mr-12 items-center gap-10`}>
 
-            <Link to="/" className={`text-gray-800 text-lg ${hoverbg}`}>
+            <Link to="/" className={`text-gray-800 relative text-lg ${navhover}`}>
              <h1> Home</h1>
             </Link>
 
-            <Link to="/about" className={`text-gray-800 text-lg ${hoverbg}`}>
+            <Link to="/about" className={`text-gray-800 relative  text-lg ${navhover}`}>
               About
             </Link>
 
-            <Link to="/contact" className={`text-gray-800 text-lg ${hoverbg}`}>
-              Contact
+            <Link to="/contact" className={`text-gray-800 relative  text-lg ${navhover}`}>
+              Project
+            </Link>
+
+            <Link to="/feed" className={`text-gray-800 relative  text-lg ${navhover}`}>
+              Feed
             </Link>
           </div>
 

@@ -9,34 +9,6 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
 
 function Upcoming() {
-  // let events =[{
-  //   date:"Feb 09",
-  //   title:"Q & A with the President",
-  //   intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-  //   time:"15:00-19:00",
-  //   venue:"online",
-  //   img:image1,
-  //   button:"RSVP",
-  //   id:1
-  // },{
-  //   date:"Feb 09",
-  //   title:"Q & A with the President",
-  //   intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-  //   time:"15:00-19:00",
-  //   venue:"online",
-  //   img:image2,
-  //   button:"RSVP",
-  //   id:2
-  // },{
-  //   date:"Feb 09",
-  //   title:"Q & A with the President",
-  //   intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-  //   time:"15:00-19:00",
-  //   venue:"online",
-  //   img:image3,
-  //   button:"RSVP",
-  //   id:3
-  // }];
 
   const items = [
     {
@@ -100,11 +72,11 @@ function Upcoming() {
   };
   
   return (
-    <div className='bg-darkbg w-full '>
+    <div className=' w-full '>
     {/* cards container */}
     {/* view name  */}
     <div className="">
-      <h1 className='text-2xl text-white py-2 font-bold'>UPCOMING EVENTS</h1>
+      <h1 className='text-2xl text-[#0099ff] py-2 font-bold'>UPCOMING EVENTS</h1>
     </div>
     <div className="">
      {/* cards */}

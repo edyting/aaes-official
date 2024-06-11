@@ -3,25 +3,23 @@ import image from '../../assets/blog62.jpg'
 
 function Second() {
   return (
-    <div className='md:mt-12 mt-4 mx-[1rem] md:mx-[2rem]'>
+    <div className='md:mt-8 mt-4  mx-[1rem] md:mx-[2rem]'>
       {/* top */}
       <div className="mb-4 py-2">
         {/* red */}
-        <div className="md:w-20 w-8 h-1  bg-danger"></div>
+        <div className="md:w-20 w-8 h-1  bg-[#0099ff]"></div>
 
       <div className="flex  items-center gap-[10px]">
         {/* h1 and line */}
       <h1 className='md:text-[1.5rem] text-[1.1rem] font-poppins md:ml-[1rem]  md:w-[10rem] capitalize text-primary font-semibold'>What we do </h1>
-      <div className="h-1 w-[65%] md:w-[calc(90vw-10rem)] rounded-xl bg-gray-text"> 
-      {/* after what we do */}
-      </div>
+
       </div>
       </div>
 
       {/* flex */}
       <div className="w-[full] flex lg:gap-[20px] flex-col md:flex-row h-[20rem] md:h-[32rem]">
         {/* left */}
-        <div className="w-full mb-2 md:mb-0  rounded-xl   md:h-full p-10 h-[20rem] ">
+        <div className="w-full mb-2 md:mb-0  rounded-xl   md:h-full  h-[20rem] ">
           {/* image */}
           <img src={image} className='w-full rounded-xl h-full object-center' alt="" />
         </div>

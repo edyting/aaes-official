@@ -1,5 +1,5 @@
 import React from 'react'
-import bgsvg from '../../../public/wave.svg'
+import bgsvg from '/wave.svg'
 import { DummyPost } from '@/db'
 
 import demopic from '../../assets/blog16.jpg'

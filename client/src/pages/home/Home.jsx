@@ -1,10 +1,15 @@
 import Carousel from '@/components/Carousel'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Eventsection from './Eventsection'
 import Second from './Second'
-import Projects from './Projects'
+
+import SingleProject from '../projects/SingleProject'
 
 export default function Home() {
+  // to bring page to top
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[]);
   return (
     <div>
         <Carousel/>
@@ -12,7 +17,7 @@ export default function Home() {
         <Second/>
 
         {/* projects -prelude */}
-        <Projects/>
+        <SingleProject/>
 
         {/* evets-section */}
         <Eventsection/>

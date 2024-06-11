@@ -5,6 +5,7 @@ import About from './pages/about/About';
 import ErrorPage from './pages/ErrorPage';
 import Feed from './pages/feed/Feed';
 import Projects from './pages/projects/Projects';
+import ProjectDetails from './pages/projects/ProjectDetails';
 
 const router = createBrowserRouter(
   [{
@@ -15,7 +16,9 @@ const router = createBrowserRouter(
         { index: true, element: < Home / > },
         { path: "/about", element: < About / > },
         { path: "/feed", element: < Feed/> },
-        {path:"/project",element:<Projects/>}
+        {path:"/projects",element:<Projects/>},
+        {path:"/projects/:id",element:<ProjectDetails/>},
+
     ]
 }])
 
