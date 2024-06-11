@@ -1,4 +1,5 @@
 import React from 'react'
+import image from '../../assets/blog62.jpg'
 
 function Second() {
   return (
@@ -11,14 +12,19 @@ function Second() {
       <div className="flex  items-center gap-[10px]">
         {/* h1 and line */}
       <h1 className='md:text-[1.5rem] text-[1.1rem] font-poppins md:ml-[1rem]  md:w-[10rem] capitalize text-primary font-semibold'>What we do </h1>
-      <div className="h-1 w-[65%] md:w-[calc(90vw-10rem)] rounded-xl bg-gray-text"></div>
+      <div className="h-1 w-[65%] md:w-[calc(90vw-10rem)] rounded-xl bg-gray-text"> 
+      {/* after what we do */}
+      </div>
       </div>
       </div>
 
       {/* flex */}
-      <div className="w-[full] flex lg:gap-[20px] flex-col md:flex-row h-[25rem] md:h-[32rem]">
+      <div className="w-[full] flex lg:gap-[20px] flex-col md:flex-row h-[20rem] md:h-[32rem]">
         {/* left */}
-        <div className="w-full mb-2 md:mb-0  rounded-xl bg-gray-400  md:h-full p-10 h-[20rem]"></div>
+        <div className="w-full mb-2 md:mb-0  rounded-xl   md:h-full p-10 h-[20rem] ">
+          {/* image */}
+          <img src={image} className='w-full rounded-xl h-full object-center' alt="" />
+        </div>
         {/* right */}
         <div className=" flex items-center justify-center">
           {/* text */}
