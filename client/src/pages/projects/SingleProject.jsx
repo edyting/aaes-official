@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 
 function SingleProject() {
 
-     // scroll tot top
-     useEffect(()=>{
-        window.scrollTo(0,0)
-      },[]);
+    //  // scroll tot top
+    //  useEffect(()=>{
+    //     window.scrollTo(0,0)
+    //   },[]);
 
   const [posts,setPost]= useState(DummyPost)
 
@@ -27,7 +27,7 @@ function SingleProject() {
 
   return (
     <div>
-      <div className='mt-12 relative  '>
+      <div className='mt-4 md:mt-12 flex flex-col md:relative bg-red-800 '>
         {/* container start */}
         <div className="h-[60vh] w-full  bg-[#0099ff] ">
             
@@ -35,10 +35,10 @@ function SingleProject() {
                 // container
                 <div key={project.id} className="h-full ">
          {/* white design */}
-            <div className="w-[30rem] hidden  h-[25rem] z-10 md:block absolute  top-16 right-0">
+            <div className="w-[30rem] hidden  h-[25rem] z-10 md:block md:absolute  top-16 right-0">
                 <div className='h-full w-full bg-white rounded-l-2xl z-4 relative'>
                     {/*  absolute image container*/}
-                    <div className="h-[20rem] w-full bg-red-600 absolute top-10 right-[8rem] rounded-3xl">
+                    <div className="h-[20rem] w-full md:absolute top-10 right-[8rem] rounded-3xl">
                         {/* image */}
                     <img src={project.thumbnail} className='object-center rounded-2xl w-full h-full' alt="" />
                     </div>
@@ -46,7 +46,7 @@ function SingleProject() {
             </div>
             
             {/* descriptive text */}
-            <div className="w-[32rem] h-[24rem]  absolute top-20 left-24 ">
+            <div className="w-[32rem] h-[24rem]  md:absolute top-20 left-24 ">
                   <h2 className='text-5xl capitalize text-center my-2 text-white font-bold'>Top featured projects</h2>
                   {/* paragraph */}
                   <div className="">

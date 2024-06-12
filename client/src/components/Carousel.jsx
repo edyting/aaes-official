@@ -44,26 +44,17 @@ const images = [{
   id:4
 },]
 
+
+//getting screen size
+let winsize = window.innerWidth;
+console.log(winsize); 
+
+// dynamic attribute
+let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
+
+console.log(showNavigation,winsize);
+
 export default function Carousel() {
-//  use setinterval to write the logic for changing the carousel image
-// let timerId = setInterval(() => 1, 7000);
-
-// const [currentIndex, setCurrentIndex] = useState(0);
-
-// // Effect to handle the carousel logic
-// useEffect(() => {
-//   // Function to update the current image index
-//   const updateIndex = () => {
-//     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Increment the index and wrap around
-//   };
-
-//   // Set an interval to update the image index every 10 seconds
-//   const intervalId = setInterval(updateIndex, 10000);
-
-//   // Cleanup function to clear the interval when the component unmounts or updates
-//   return () => clearInterval(intervalId);
-// }, []); // Empty dependency array means this effect runs once when the component mounts
-
 
   return (
     <div >
@@ -76,7 +67,7 @@ export default function Carousel() {
   autoplay={{delay:5000}}
   pagination={{ clickable: true }}
   // scrollbar={{ draggable: true }}
-  className='w-screen md:h-[90vh] '
+  className='w-screen h-[40vh] md:h-[90vh] '
     >
       
 
@@ -87,8 +78,8 @@ export default function Carousel() {
             <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
             {/* welcome text */}
-            <div className="absolute text-white top-[45%] left-[10rem]">
-              <h2 className='text-[3rem] capitalize font-poppins font-bold '>{image.title}</h2>
+            <div className="absolute text-white top-[30%] md:top-[45%] left-[2rem] md:left-[10rem]">
+              <h2 className='md:text-[3rem] text-2xl capitalize font-poppins font-bold '>{image.title}</h2>
               <p className='pl-[2rem] py-[1rem]'>{image.text}</p>
               <div className="pl-[2rem]">
                 <button className='capitalize bg-primary px-3 py-2 font rounded-full'>{image.btn}</button>
