@@ -23,7 +23,8 @@ const Navbar = () => {
 
   return (
     
-    <nav
+<div className="">
+<nav
       className={`h-[5rem]  top-0 font-poppins delay-150 ease-in-out  flex items-center z-[100]
       mx-0 transition-all  bg-white  w-full  shadow-lg duration-300
        `
@@ -53,9 +54,6 @@ const Navbar = () => {
               Project
             </Link>
 
-            <Link to="/feed" className={`text-gray-800 relative  text-lg ${navhover}`}>
-              Feed
-            </Link>
           </div>
 
         </div>
@@ -117,8 +115,13 @@ const Navbar = () => {
         </div> }
         </div>
       </div>
+      
     </nav>
-  );
+
+    {/* bottom bar */}
+    <div className="w-full h-[1.5px] bg-[#0099ff]"></div>
+</div>
+  )
 };
 
 export default Navbar;
