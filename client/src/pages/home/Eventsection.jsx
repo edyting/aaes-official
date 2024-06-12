@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import Upcoming from './Upcomingevents'
-import Pastevents from './Pastevents';
+import { Link } from 'react-router-dom';
+
 
 function Eventsection() {
-  let [eventstate,setevent] = useState(true);
 
-  let onClick = ()=>{
-      setevent(!eventstate);
-      console.log(eventstate);
-  }
   return (
    <div className="md:m -  md:mx-[2rem]">
       {/* top */}
@@ -19,18 +15,20 @@ function Eventsection() {
       <div className="flex mx-[1rem]  items-center gap-[10px]">
         {/* h1 and line */}
       <h1 className='md:text-[1.5rem] text-[1.2rem] font-poppins md:ml-[1rem]  md:w-[10rem] capitalize  font-semibold'>Events </h1>
-      <div className="h-1 w-[78%] md:w-[calc(90vw-10rem)] rounded-xl bg-gray-text"></div>
       </div>
       </div>
-     <div className='bg-darkbg mb-8 mt-1 h-full w-full px-4 md:px-12'>
+
+
+     <div className='mb-8 mt-1 h-full w-full px-4 md:px-4'>
       {/* events  */}
-      <div className="">
-     { eventstate ?  <Upcoming/> : <Pastevents/> }
+      <div className="w-full">
+     <Upcoming/>
       </div>
        {/* button */}
        <div className="">
-         <button onClick={onClick} className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4 hover:bg-white hover:font-bold hover:text-primary'>
-           {!eventstate ? " view next event": " view past events"}  
+         <button className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] rounded hover:text-primary'>
+           {/* {!eventstate ? " view next event": " view past events"}   */}
+           <Link to={'/pastevents'}> View Past Events</Link>
          </button>
        </div>
      </div>

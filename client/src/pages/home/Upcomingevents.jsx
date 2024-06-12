@@ -5,8 +5,8 @@ import image3 from "../../components/images/image3.jpg";
 
 
 import React, { useState } from "react";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-
+import { CiCircleChevLeft } from "react-icons/ci";
+import { CiCircleChevRight } from "react-icons/ci";
 
 function Upcoming() {
 
@@ -78,23 +78,29 @@ function Upcoming() {
     <div className="">
       <h1 className='text-2xl text-[#0099ff] py-2 font-bold'>UPCOMING EVENTS</h1>
     </div>
-    <div className="">
+    <div className="relative">
      {/* cards */}
-     <div className="relative w-full overflow-hidden">
-      <div className="flex justify-between items-center absolute w-full h-full">
-        <button
-          className="absolute left-0 top-[50%] bottom-0 flex items-center justify-center z-10 w-10 h-10 bg-gray-900 text-white hover:bg-gray-800"
+     {/* navigation buttons */}
+     <button
+          className="absolute -left-12 top-[10%] bottom-0 flex items-center justify-center z-10 "
           onClick={goToPrevSlide}
         >
-          <FaArrowAltCircleLeft />
+         <CiCircleChevLeft className="h-[3rem] w-[3rem]  text-black rounded-full" />
         </button>
+
         <button
-          className="absolute right-0 top-[50%] bottom-0 flex items-center justify-center z-10 w-10 h-10 bg-gray-900 text-white hover:bg-gray-800"
+          className="absolute -right-12 top-[10%] bottom-0 flex items-center justify-center z-10   text-white  "
           onClick={goToNextSlide}
         >
-          <FaArrowAltCircleRight />
+          <CiCircleChevRight className="h-[3rem] w-[3rem] text-black rounded-full" />
         </button>
+
+     <div className="relative w-full overflow-hidden">
+      <div className="flex justify-between items-center absolute w-full h-full">
+       
+       
       </div>
+
       <div
         className="flex transition-transform duration-300 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -102,12 +108,12 @@ function Upcoming() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4"
+            className="flex-shrink-0 md:w-1/2 lg:w-1/3 p-4"
           >
             {/* date */}
             
             <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="text-muted">
+            <div className="text-">
               {item.date}
             </div>
               <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
@@ -117,7 +123,7 @@ function Upcoming() {
               </div>
               <p>{item.intro}</p>
                {/* time & venue*/}
-            <div className="flex justify-between pt-2 text-muted">
+            <div className="flex justify-between pt-2 ">
               <div className="">
                 Time:{item.time}
               </div>

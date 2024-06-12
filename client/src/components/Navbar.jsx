@@ -49,7 +49,7 @@ const Navbar = () => {
               About
             </Link>
 
-            <Link to="/contact" className={`text-gray-800 relative  text-lg ${navhover}`}>
+            <Link to="/projects" className={`text-gray-800 relative  text-lg ${navhover}`}>
               Project
             </Link>
 

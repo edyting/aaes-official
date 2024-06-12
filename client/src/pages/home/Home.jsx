@@ -4,6 +4,7 @@ import Eventsection from './Eventsection'
 import Second from './Second'
 
 import SingleProject from '../projects/SingleProject'
+import Events from '../feed/Events'
 
 export default function Home() {
   // to bring page to top
@@ -21,6 +22,9 @@ export default function Home() {
 
         {/* evets-section */}
         <Eventsection/>
+
+        {/* events */}
+        <Events/>
     </div>
   )
 }
