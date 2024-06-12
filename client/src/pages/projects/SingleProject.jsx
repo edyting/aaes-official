@@ -27,7 +27,7 @@ function SingleProject() {
 
   return (
     <div>
-      <div className='mt-4 md:mt-12 flex flex-col md:relative bg-red-800 '>
+      <div className='mt-4 md:mt-12 flex flex-col md:relative '>
         {/* container start */}
         <div className="h-[60vh] w-full  bg-[#0099ff] ">
             
