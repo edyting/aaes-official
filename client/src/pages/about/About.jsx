@@ -2,6 +2,7 @@ import Carousel from './Carousel'
 import React from 'react'
 import Second from './Second'
 import Mission from './Mission'
+import Executive from './Executive'
 
 export default function About() {
   return (
@@ -19,6 +20,11 @@ export default function About() {
 
       <div className="">
         <Mission/>
+      </div>
+
+      {/* executives */}
+      <div className="" id='executives'>
+      <Executive/>
       </div>
     </div>
   )

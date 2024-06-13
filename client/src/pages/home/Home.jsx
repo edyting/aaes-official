@@ -5,12 +5,13 @@ import Second from './Second'
 
 import SingleProject from '../projects/SingleProject'
 import Events from '../feed/Events'
+import ExecutiveDisplay from '../about/ExecutiveDisplay'
 
 export default function Home() {
   // to bring page to top
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[]);
+  // useEffect(()=>{
+  //   window.scrollTo(0,0)
+  // },[]);
   return (
     <div>
         <Carousel/>
@@ -25,6 +26,9 @@ export default function Home() {
 
         {/* events */}
         <Events/>
+
+        {/* executive display  */}
+        <ExecutiveDisplay/>
     </div>
   )
 }
