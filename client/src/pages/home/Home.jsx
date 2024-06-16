@@ -7,6 +7,7 @@ import SingleProject from '../projects/SingleProject'
 import Events from '../feed/Events'
 import ExecutiveDisplay from '../about/ExecutiveDisplay'
 import EventsCarousel from '@/components/EventsCarousel'
+import ExecutiveShow from '../about/ExecutiveShow'
 
 export default function Home() {
   // to bring page to top
@@ -29,8 +30,8 @@ export default function Home() {
         <Events/>
         {/* Events carousel */}
 
-        {/* executive display  */}
-        <ExecutiveDisplay/>
+        {/* executive show */}
+        <ExecutiveShow/>
     </div>
   )
 }

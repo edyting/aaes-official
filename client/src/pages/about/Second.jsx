@@ -7,7 +7,7 @@ function Second() {
     
 
       {/* flex */}
-      <div className="w-[full] flex lg:gap-[20px] flex-col md:flex-row h-[20rem] md:h-[32rem]">
+      <div className="w-[full] flex lg:gap-[20px] flex-col md:flex-row h-[20re md:h-[32rem]">
         {/* left */}
         <div className="w-full mb-2 md:mb-0  rounded-xl   md:h-full  h-[20rem] ">
           {/* image */}

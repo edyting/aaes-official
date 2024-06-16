@@ -102,8 +102,8 @@ export default function EventsCarousel({items}) {
       </CarouselContent>
       {/* navigation */}
       <div className="flex  top-[24rem]  right-16 justify-between  gap-10 w-[20%]  absolute md:relative">
-      <CarouselPrevious className=" w-[5rem] md:w-1/4 "/>
-      <CarouselNext className="w-[5rem] md:w-1/4 "/>
+      <CarouselPrevious className=" w-[5rem]  "/>
+      <CarouselNext className="w-[5rem]  "/>
       </div>
     </Carousel>
 

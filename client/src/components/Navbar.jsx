@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="">
             {/* Responsive Menu for Small Screens */}
             {isOpen ? (
-            <div className="md:hidden mx-0 top-0 left-0 absolute h-screen w-screen bg-gray-800 z-[100]">
+            <div className="md:hidden mx-0 top-0 left-0 absolute h-screen w-screen bg-[#0099ff] z-[100]">
                 
             <div className="text-white mt-3 p-4 text-2xl mb-0 pb-0 font-bold flex justify-between">
             <Link to="/">LOGO</Link>
@@ -77,11 +77,8 @@ const Navbar = () => {
                 <Link to="/about" className="text-white">
                   About
                 </Link>
-                <Link to="/services" className="text-white">
+                <Link to="/projects" className="text-white">
                   Services
-                </Link>
-                <Link to="/contact" className="text-white">
-                  Contact
                 </Link>
               </div>
             </div>

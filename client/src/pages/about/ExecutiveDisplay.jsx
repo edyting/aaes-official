@@ -12,6 +12,8 @@ export default function ExecutiveDisplay() {
         </div>
         {/* main container */}
         <div className="w-full h-[25rem] my-8">
+
+          
             {/* grid container */}
             <div className="grid w-[80%] h-full mx-auto grid-cols-3 gap-4">
                 {/* grid items -1 */}
