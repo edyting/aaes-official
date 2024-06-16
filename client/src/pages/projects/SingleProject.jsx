@@ -27,27 +27,18 @@ function SingleProject() {
 
   return (
     <div>
-      <div className='mt-4 md:mt-12 flex flex-col md:relative '>
+      <div className='mt-4 md:mt-12 flex flex-col  md:relative '>
         {/* container start */}
-        <div className="h-[60vh] w-full  bg-[#0099ff] ">
+        <div className="md:h-[60vh] w-full  bg-[#0099ff] ">
             
             {currentproject.map((project)=>(
                 // container
                 <div key={project.id} className="h-full ">
-         {/* white design */}
-            <div className="w-[30rem] hidden  h-[25rem] z-10 md:block md:absolute  top-16 right-0">
-                <div className='h-full w-full bg-white rounded-l-2xl z-4 relative'>
-                    {/*  absolute image container*/}
-                    <div className="h-[20rem] w-full md:absolute top-10 right-[8rem] rounded-3xl">
-                        {/* image */}
-                    <img src={project.thumbnail} className='object-center rounded-2xl w-full h-full' alt="" />
-                    </div>
-                </div>
-            </div>
+  
             
             {/* descriptive text */}
-            <div className="w-[32rem] h-[24rem]  md:absolute top-20 left-24 ">
-                  <h2 className='text-5xl capitalize text-center my-2 text-white font-bold'>Top featured projects</h2>
+            <div className="md:w-[32rem] h-[24rem]  md:absolute md:top-20 md:left-24 ">
+                  <h2 className='md:text-5xl text-2xl capitalize text-center my-2 text-white font-bold'>Top featured projects</h2>
                   {/* paragraph */}
                   <div className="">
                     <p className='text-center text-white my-8'>
@@ -58,13 +49,25 @@ function SingleProject() {
                   <div className="text-center rounded-lg">
                     <Link to='/projects/[12]/' className='bg-white text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
                   </div>
+
              </div>
-            
+                 
+                       {/* white design */}
+            <div className="md:w-[30rem]   md:h-[25rem] z-10 md:block md:absolute  md:top-16 md:right-0">
+                <div className='md:h-full md:w-full md:bg-white rounded-l-2xl z-4 md:relative'>
+                    {/*  absolute image container*/}
+                    <div className="md:h-[20rem] md:w-full md:absolute md:top-10 right-[8rem] md:rounded-3xl">
+                        {/* image */}
+                    <img src={project.thumbnail} className='object-center rounded-t-2xl w-full h-full' alt="" />
+                    </div>
+                </div>
+            </div>
+
                 </div>
             ))}
         </div>
         {/* container start */}
-        <div className="bg-[url('../../../public/wave.svg')] h-[15rem]  bg-cover bg-no-repeat w-full " >
+        <div className="md:bg-[url('../../../public/wave.svg')] md:h-[15rem]  bg-cover bg-no-repeat w-full " >
         </div>
     </div>
     </div>

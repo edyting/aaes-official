@@ -6,6 +6,7 @@ import Second from './Second'
 import SingleProject from '../projects/SingleProject'
 import Events from '../feed/Events'
 import ExecutiveDisplay from '../about/ExecutiveDisplay'
+import EventsCarousel from '@/components/EventsCarousel'
 
 export default function Home() {
   // to bring page to top
@@ -26,6 +27,7 @@ export default function Home() {
 
         {/* events */}
         <Events/>
+        {/* Events carousel */}
 
         {/* executive display  */}
         <ExecutiveDisplay/>
