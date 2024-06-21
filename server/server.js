@@ -1,29 +1,42 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const mongoString = "mongodb+srv://manuel:manuel123@cluster0.9fkysdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-const userRoute = require('./routes/user.js')
+import express, { json } from 'express';
+import pkg from 'mongoose';
+import dotenv from 'dotenv';
+// import userRoute from './routes/user.js';
 
-// console.log(mongoString);
-mongoose.connect(mongoString)
-const db =mongoose.connection
+const { connect, connection } = pkg;
 
-db.on('error',(error)=>{
-    console.log(error);
-})
+// Load environment variables from .env file
+dotenv.config();
 
-db.once('connected',(connected)=>{
+// MongoDB connection string from environment variables
+const mongoString = process.env.MONGO_URI;
+
+// Connect to MongoDB
+connect(mongoString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const db = connection;
+
+db.on('error', (error) => {
+    console.log('MongoDB connection error:', error);
+});
+
+db.once('connected', () => {
     console.log('Database connected');
-})
+});
 
+// Create an Express application
+const app = express();
 
-const app = express()
+// Middleware
+app.use(json());
 
-app.use(express.json())
+// Routes
+// app.use('/api/user', userRoute);
 
-app.use('/api/user', userRoute)
-
-
-
-app.listen(3000,()=>{
-    console.log(`Server is running`);
-})
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
