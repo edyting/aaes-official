@@ -2,16 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    f_name: {
-      type: String,
-      required: true,
-      trim: true,
-      // make first letter capital
-      set: (v) => {
-        return v.charAt(0).toUpperCase() + v.slice(1);
-      },
-    },
-    l_name: {
+    username: {
       type: String,
       required: true,
       trim: true,
@@ -39,10 +30,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-    },
-    verified: {
-      type: Boolean,
-      default: false,
     }
   },
   {
