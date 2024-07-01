@@ -67,7 +67,7 @@ function SingleProject() {
             ))}
         </div>
         {/* container start */}
-        <div className="md:bg-[url('../../../public/wave.svg')] md:h-[15rem]  bg-cover bg-no-repeat w-full " >
+        <div className="md:bg-[url('../../../public/wave.svg')] md:h-[15rem] h-full bg-cover bg-no-repeat w-full " >
         </div>
     </div>
     </div>
