@@ -75,7 +75,7 @@ export default function Carousel() {
         <div className="w-full h-full">
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
-            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
+            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] max-w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
             {/* welcome text */}
             <div className="absolute text-white top-[30%] md:top-[45%] left-[2rem] md:left-[10rem]">

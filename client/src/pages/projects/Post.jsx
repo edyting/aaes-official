@@ -11,7 +11,7 @@ function Post() {
     <div className='mt-12'>
       {/* view all projects page */}
       <div className=" mb-4">
-        <h2 className='text-[#0099ff] font-bold text-3xl ml-12  capitalize'>Projects done by students</h2>
+        <h2 className='text-[#0099ff] font-bold text-3xl ml-12  capitalize '>Projects done by students</h2>
       </div>
 
       {/* all projects card */}
