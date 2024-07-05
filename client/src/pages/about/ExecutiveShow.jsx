@@ -28,7 +28,7 @@ const ExecutiveShow = () => {
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
-                    <div className="w-full h-full">
+                    <div className="max-w-[] max-h-full">
                         <img src={card.image} alt="" className="w-[100%] h-full" />
                     </div>
                     {/* text-card */}

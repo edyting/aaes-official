@@ -6,7 +6,7 @@ import Newsletter from './Newsletter';
 
 function Footer() {
   return (
-    <div className='bg-[#0099ff] w-screen '>
+    <div className='bg-[#0099ff] max-w-screen '>
         {/* flex */}
       <div className="md:w-[80%] mx-auto md:mx-12 lg:mx-auto">
             {/* top */}
