@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import NewFooter from './NewFooter'
 
 export default function Layout() {
   return (
@@ -14,9 +15,9 @@ export default function Layout() {
     <div className="">
         <Outlet/>
     </div>
-    {/* footer */}
+    {/* <Footer/> */}
     <div className="">
-        <Footer/>
+    <NewFooter/>        
     </div>
    </div>
   )
