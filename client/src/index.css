@@ -10,4 +10,14 @@
   @tailwind components;
   @tailwind utilities;
 
- 
+ .singleProject{
+  /* background-image: url(./components/images/wave.svg);
+  background-color: #0099ff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  height: 50vh;
+  width: 100vw;
+  margin-bottom: 40px;
+  background:#0099ff, 91fd ;
+ }

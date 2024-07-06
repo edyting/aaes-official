@@ -8,6 +8,7 @@ import Events from '../feed/Events'
 import ExecutiveDisplay from '../about/ExecutiveDisplay'
 import EventsCarousel from '@/components/EventsCarousel'
 import ExecutiveShow from '../about/ExecutiveShow'
+import NewSingleProject from '../projects/NewSingleProject'
 
 export default function Home() {
   // to bring page to top
@@ -21,7 +22,10 @@ export default function Home() {
         <Second/>
 
         {/* projects -prelude */}
-        <SingleProject/>
+        {/* <SingleProject/> */}
+
+        {/* new single project */}
+        <NewSingleProject/>
 
         {/* evets-section */}
         <Eventsection/>

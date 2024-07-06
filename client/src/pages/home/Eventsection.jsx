@@ -19,9 +19,9 @@ function Eventsection() {
       </div>
 
 
-     <div className='mb-8 mt-1 md:h-full w-full md:px-4'>
+     <div className='mb-8 mt-1 md:h-ful w-full md:px-4'>
       {/* events  */}
-      <div className="w-full">
+      <div className="w-full ">
      <Upcoming/>
       </div>
       

@@ -39,8 +39,8 @@ export default function NewFooter() {
                 <div className="w-[80%] mx-auto py-6 bg-yellow- flex justify-between ">
                     {/* msg */}
                     <div className="">
-                    <h1 className='text-lg capitalize font-bold'>suscribe</h1>
-                    <p className='capitalize text-sm'>join our mailing list and get our news </p>
+                    <h1 className='text-2xl text-white capitalize font-bold'>suscribe</h1>
+                    <p className='capitalize text-sm font-lobster'>join our mailing list and get our news </p>
                     </div>
                     {/* input */}
                     <div className="">
@@ -59,7 +59,7 @@ export default function NewFooter() {
             <div className="w-full  py-4">
                 <div className="w-[80%] flex justify-between mx-auto">
                     {/* left */}
-                    <div className="">
+                    <div className="font-lobster">
                         @copyright 2024 Lorem ipsum dolor sit amet.
                     </div>
                     {/* right */}

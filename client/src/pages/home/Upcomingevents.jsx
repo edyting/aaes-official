@@ -83,7 +83,7 @@ function Upcoming() {
 
 
      <div className="relative md:w-full md:overflow-hidden">
-      <div className="flex justify-between items-center  w-full  md:h-full">
+      <div className="flex justify-between items-center w-full  md:h-full">
       <EventsCarousel items={items} />
        
       </div>

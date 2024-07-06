@@ -70,7 +70,7 @@ export default function EventsCarousel({items}) {
     //   ];
 
   return (
-    <div className='md:w-[90vw] block w-full md:h-[30rem] h-[25rem] relative md:mx-auto '>
+    <div className='md:w-[90vw] block w-full relative md:mx-auto '>
     <Carousel className="w-full h-full mx-aut ">
       <CarouselContent className="-ml-1">
         {items.map((item,) => (
