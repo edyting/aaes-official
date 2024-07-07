@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom'
 
 function Second() {
   return (
-    <div className='md:mt-8 mt-4 mx-[1rem] mb-8 md:mb-0 max-w-screen  md:mx-[2rem]'>
-      {/* top */}
-      <div className="mb-4 py-2">
+    <div className='md:mt-8 mt-4  mb-8 md:mb-0 max-w-screen  '>
+     {/* rounded container */}
+     <div className="w-[95%] rounded-xl mx-auto border p-5 border-[#0099ff]">
+       {/* top */}
+       <div className="mb-4 ">
         {/* red */}
         <div className="md:w-20 w-8 h-1  bg-[#0099ff]"></div>
 
       <div className="flex  items-center gap-[10px]">
         {/* h1 and line */}
-      <h1 className='md:text-[1.5rem] text-2xl font-lobster md:ml-[1rem]  md:w-[10rem] capitalize font-semibold'>What we do </h1>
+      <h1 className='md:text-[1.5rem] text-2xl font-lobster md:ml-[1rem]  capitalize font-semibold'>What we do </h1>
 
       </div>
       </div>
@@ -44,6 +46,7 @@ function Second() {
           </div>
         </div>
       </div>
+     </div>
     </div>
   )
 }

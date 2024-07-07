@@ -76,7 +76,7 @@ export default function EventsCarousel({items}) {
         {items.map((item,) => (
           <CarouselItem key={item.id} className="pl-1 basi md:basis-1/2 lg:basis-1/3  ">
             <div className="p-1 ">
-              <div className="w-full rounded-lg shadow p-4">
+              <div className="w-full rounded-xl shadow p-4">
             <div className="text-">
               {item.date}
             </div>

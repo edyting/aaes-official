@@ -77,7 +77,7 @@ function Upcoming() {
     {/* cards container */}
     {/* view name  */}
     <div className="">
-      <h1 className='text-2xl text-[#0099ff] py-2 font-bold'>UPCOMING EVENTS</h1>
+      <h1 className='text-2xl text-[#0099ff]  font-bold'>UPCOMING EVENTS</h1>
     </div>
     <div className="relative">
 

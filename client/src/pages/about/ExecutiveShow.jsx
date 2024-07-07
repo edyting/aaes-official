@@ -15,14 +15,16 @@ const ExecutiveShow = () => {
 
     return ( 
         
-       <div >
-         <div className="md:w-[83%] md:mx-28 ">
+       <div className='w-full h-auto my-5'>
+   {/* rounded container */}
+   <div className="w-[95%] mx-auto border rounded-xl border-[#0099ff]">
+   <div className=" ">
          <div className="">
             <h2 className='md:text-4xl text-2xl ml-8 font-bold text-[#0099ff]'>Meet Our Executives</h2>
         </div>
 
             {/* cards container */}
-            <div className="c-container md:w-[90%] md:mx-auto grid md:grid-cols-3 md:grid-rows-1  row-span-1 md:gap-x-4 gap-4 col-span-auto md:p-4 grid-cols-1 grid-rows-2 overflow-hidden">
+            <div className="md:w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-1   md:gap-x-4 gap-4  md:p-4 grid-cols-1 grid-rows-2 ">
                 {cards.map((card)=>(
                 <div className="w-[100%] relative shadow bg-primaryblue p-4 ">
                     {/* inner */}
@@ -32,7 +34,7 @@ const ExecutiveShow = () => {
                         <img src={card.image} alt="" className="w-[100%] h-full" />
                     </div>
                     {/* text-card */}
-                    <div className=" w-[95%] md:h-[4rem] -mt-4 absolute z-10 bottom-2 md:left-2 left-1 text-center bg-white">
+                    <div className=" w-[95%] md:h-[4rem] -mt-4 absolue z-10 bottom-2 md:left-2 left-1 ">
                         <h2 className='md:text-xl font-medium'>{card.title}</h2>
                         <p className='text-grayscale'>{card.text}</p>
                     </div>
@@ -43,7 +45,7 @@ const ExecutiveShow = () => {
           
         </div>
           {/* button */}
-          <div className="ml-12">
+          <div className="ml-1">
         <button className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] rounded hover:text-primary'>
            {/* {!eventstate ? " view next event": " view past events"}   */}
            <HashLink to={"/about/#executives"} >
@@ -51,6 +53,7 @@ const ExecutiveShow = () => {
           </HashLink>
          </button>
         </div>
+   </div>
        </div>
      );
 }
