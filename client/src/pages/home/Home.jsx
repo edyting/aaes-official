@@ -9,6 +9,7 @@ import ExecutiveDisplay from '../about/ExecutiveDisplay'
 import EventsCarousel from '@/components/EventsCarousel'
 import ExecutiveShow from '../about/ExecutiveShow'
 import NewSingleProject from '../projects/NewSingleProject'
+import LibraryIntro from './LibraryIntro'
 
 export default function Home() {
   // to bring page to top
@@ -36,6 +37,9 @@ export default function Home() {
 
         {/* executive show */}
         <ExecutiveShow/>
+        
+        {/* library introduction */}
+        <LibraryIntro/>
     </div>
   )
 }

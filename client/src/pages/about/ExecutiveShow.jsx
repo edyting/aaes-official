@@ -18,25 +18,26 @@ const ExecutiveShow = () => {
        <div className='w-full h-auto my-5'>
    {/* rounded container */}
    <div className="w-[95%] mx-auto border rounded-xl border-[#0099ff]">
+
    <div className=" ">
          <div className="">
-            <h2 className='md:text-4xl text-2xl ml-8 font-bold text-[#0099ff]'>Meet Our Executives</h2>
+            <h2 className='md:text-4xl text-2xl py-3 font-bold text-[#0099ff]'>Meet Our Executives</h2>
         </div>
 
             {/* cards container */}
             <div className="md:w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-1   md:gap-x-4 gap-4  md:p-4 grid-cols-1 grid-rows-2 ">
                 {cards.map((card)=>(
-                <div className="w-[100%] relative shadow bg-primaryblue p-4 ">
+                <div className="w-[90%] mx-auto h-auto mb-2 rounded-xl ">
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
-                    <div className="max-w-[] max-h-full">
-                        <img src={card.image} alt="" className="w-[100%] h-full" />
+                    <div className="max-w-full h-full shadow rounded-xl mx-auto">
+                        <img src={card.image} alt="" className="w-[100%] rounded-xl h-[90%]" />
                     </div>
                     {/* text-card */}
-                    <div className=" w-[95%] md:h-[4rem] -mt-4 absolue z-10 bottom-2 md:left-2 left-1 ">
-                        <h2 className='md:text-xl font-medium'>{card.title}</h2>
-                        <p className='text-grayscale'>{card.text}</p>
+                    <div className=" w-[95%] md:h-[4rem] mt-4 mb-4 ">
+                        <h2 className='md:text-xl font-medium '>{card.title}</h2>
+                        <p className='font-poppins text-[#0099ff]'>{card.text}</p>
                     </div>
                     </div>
                 </div>
@@ -46,7 +47,7 @@ const ExecutiveShow = () => {
         </div>
           {/* button */}
           <div className="ml-1">
-        <button className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] rounded hover:text-primary'>
+        <button className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] rounded-xl hover:text-primary'>
            {/* {!eventstate ? " view next event": " view past events"}   */}
            <HashLink to={"/about/#executives"} >
             Meet Our executives

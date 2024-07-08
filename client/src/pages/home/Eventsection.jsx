@@ -8,7 +8,7 @@ function Eventsection() {
   return (
    <div className="mt-8 md:mt-0  md:mx-[2rem]">
       {/* rounded container */}
-      <div className="border rounded-xl md:mb-4 pt-5 border-[#0099ff]">
+      <div className="border w-[95%] md:w-full mx-auto md:mx-0 rounded-xl md:mb-4 pt-5 border-[#0099ff]">
         {/* top */}
       <div className="md:mb-  mb:py-2 ">
         {/* red */}

@@ -21,3 +21,12 @@
   margin-bottom: 40px;
   background:#0099ff, 91fd ;
  }
+
+ .library{
+  background-image: linear-gradient(to right,rgba(0,0,0,0.7)5%,rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+  url('./components/images/library.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  
+ }

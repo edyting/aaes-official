@@ -21,8 +21,8 @@ export default function NewFooter() {
             {/* top */}
             <div className="w-full">
                 <div className="w-[80%]  md:py-5 mx-auto bg-green h-auto">
-                    <ul className='md:grid-cols-5 grid-cols-2 grid '>
-                        <li className='font-bold text-2xl text-white'>logo</li>
+                    <ul className='md:grid-cols-5 grid-cols-2 grid gap-y-3 py-2 '>
+                        <li className='font-bold text-2xl text-white col-span-2 md:col-span-5 py-2'>logo</li>
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Home</Link> </li>
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>About</Link> </li>
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Project</Link> </li>
@@ -36,11 +36,11 @@ export default function NewFooter() {
              </div>
             {/* middle */}
             <div className="">
-                <div className="w-[80%] mx-auto py-6 bg-yellow- flex justify-between ">
+                <div className="w-[80%] mx-auto  md:py-6 py-3  md:flex grid grid-cols-1  justify-between ">
                     {/* msg */}
                     <div className="">
-                    <h1 className='text-2xl text-white capitalize font-bold'>suscribe</h1>
-                    <p className='capitalize text-sm font-lobster'>join our mailing list and get our news </p>
+                    <h1 className='text-2xl text-white capitalize py-2 font-bold'>suscribe</h1>
+                    <p className='capitalize text-sm font-poppins pb-2'>join our mailing list and get our news </p>
                     </div>
                     {/* input */}
                     <div className="">
@@ -57,14 +57,14 @@ export default function NewFooter() {
              </div>
             {/* buttom */}
             <div className="w-full  py-4">
-                <div className="w-[80%] flex justify-between mx-auto">
+                <div className="w-[80%] md:flex grid grid-cols-1 grid-rows-2 gap-y-8 justify-between mx-auto">
                     {/* left */}
                     <div className="font-lobster">
                         @copyright 2024 Lorem ipsum dolor sit amet.
                     </div>
                     {/* right */}
-                    <div className="">
-                    <ul className='md:grid-cols-5 gap-10 grid '>
+                    <div className="row-start-1 py- md:py-0">
+                    <ul className='grid-cols-5 gap-10 grid '>
                         <li> <Link className='text-white text-[2rem]'> <FaLinkedin /> </Link> </li>
                         <li>  <Link className='text-white text-[2rem]'> <FaSquareXTwitter />
                         </Link> </li>
