@@ -14,7 +14,7 @@ function PostItem({post}) {
         <div className="w-full  rounded-xl">
             <article className='bg-white  p-3 rounded-xl hover:shadow-xl'>
                 <div className="">
-                    <img src={post.thumbnail} alt={post.title} className='rounded overflow-hidden w-full h-[16rem]' />
+                    <img src={post.thumbnail} alt={post.title} className='rounded overflow-hidden w-full ' />
                 </div>
                 <div className="mt-[1rem]">
                    <div className="my-2 text-gray-900 font-bold ">
@@ -25,7 +25,7 @@ function PostItem({post}) {
                     <p>
                         {shortdesc}
                     </p>
-                    <div className="flex justify-between items-end mt-4 items-center">
+                    <div className="flex justify-between items-en mt-4 items-center">
                         <PostAuthor/>
                         <Link to={`/posts/categories/${post.category}`} className='bg-[#f9f9f9] text-gray-900 rounded py-1 px-3 hover:bg-gray-900 hover:text-white shadow'>
                             {post.category}

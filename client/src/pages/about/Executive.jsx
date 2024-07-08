@@ -29,12 +29,12 @@ export default function Executive() {
       {/* cards container */}
       <div className="c-container md:w-[90%] md:mx-auto grid md:grid-cols-4 md:grid-rows-2  row-span-1 gap-x-4 gap-4 col-span-auto md:p-4 grid-cols-2">
                 {cards.map((card)=>(
-                <div className="w-[100%] relative  bg-primaryblue p-4 ">
+                <div className="w-[100%] relative   rounded-xl shadow p-4 ">
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
                     <div className="w-full h-full">
-                        <img src={card.image} alt="" className="w-[100%] h-full" />
+                        <img src={card.image} alt="" className="w-[100%] rounded-xl h-full" />
                     </div>
                     {/* text-card */}
                     <div className=" w-[95%] md:h-[4rem] -mt-4 absolute z-10 bottom-2 md:left-2 left-1 text-center bg-white">

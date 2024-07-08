@@ -52,7 +52,7 @@ console.log(winsize);
 // dynamic attribute
 let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
 
-console.log(showNavigation,winsize);
+
 
 export default function Carousel() {
 
@@ -66,8 +66,9 @@ export default function Carousel() {
   navigation
   autoplay={{delay:5000}}
   pagination={{ clickable: true }}
+ 
   // scrollbar={{ draggable: true }}
-  className='w-screen h-[40vh] md:h-[90vh] '
+  className='max-w-screen min-h-[40vh] md:h-[90vh] '
     >
       
 
@@ -75,11 +76,11 @@ export default function Carousel() {
         <div className="w-full h-full">
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
-            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
+            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] max-w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
             {/* welcome text */}
-            <div className="absolute text-white top-[30%] md:top-[45%] left-[2rem] md:left-[10rem]">
-              <h2 className='md:text-[3rem] text-2xl capitalize font-poppins font-bold '>{image.title}</h2>
+            <div className="absolute  w-[60%]  text-white top-[20%] flex text-center flex-col mx-auto md:top-[40%] left-[2rem] md:left-[25%]">
+              <h2 className='md:text-[3rem] text-2xl capitalize font-poppins font-bold leading-relaxed '>{image.title}</h2>
               <p className='pl-[2rem] py-[1rem]'>{image.text}</p>
               <div className="pl-[2rem]">
                 <button className='capitalize bg-primary px-3 py-2 font rounded-full'>{image.btn}</button>

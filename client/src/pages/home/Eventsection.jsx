@@ -7,8 +7,10 @@ function Eventsection() {
 
   return (
    <div className="mt-8 md:mt-0  md:mx-[2rem]">
-      {/* top */}
-      <div className="md:mb-4  mb:py-2 ">
+      {/* rounded container */}
+      <div className="border w-[95%] md:w-full mx-auto md:mx-0 rounded-xl md:mb-4 pt-5 border-[#0099ff]">
+        {/* top */}
+      <div className="md:mb-  mb:py-2 ">
         {/* red */}
         <div className="md:w-20 mx-[1rem] w-12 h-1  bg-[#0099ff]"></div>
 
@@ -19,20 +21,21 @@ function Eventsection() {
       </div>
 
 
-     <div className='mb-8 mt-1 md:h-full w-full md:px-4'>
+     <div className='mb-8  md:h-ful w-full md:px-4'>
       {/* events  */}
-      <div className="w-full">
+      <div className="w-full ">
      <Upcoming/>
       </div>
       
        {/* button */}
        <div className="">
-         <button className='capitalize text-[#0099ff] border-primary  border-2 mt-4 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] ml-2 rounded hover:text-primary'>
+         <button className='capitalize text-[#0099ff] border-primary  border-2 mt-4 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] ml-2 rounded-xl hover:text-primary'>
            {/* {!eventstate ? " view next event": " view past events"}   */}
            <Link to={'/pastevents'}> View Past Events</Link>
          </button>
        </div>
      </div>
+      </div>
    </div>
   )
 }
