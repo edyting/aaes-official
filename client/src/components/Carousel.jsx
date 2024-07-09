@@ -63,7 +63,7 @@ export default function Carousel() {
   spaceBetween={50}
   effect="fade"
   slidesPerView={1}
-  navigation
+  
   autoplay={{delay:5000}}
   pagination={{ clickable: true }}
  

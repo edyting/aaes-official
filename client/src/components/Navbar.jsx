@@ -55,6 +55,11 @@ const Navbar = () => {
               Project
             </Link>
 
+            <Link to="/gallery" className={`text-gray-800 relative  text-lg ${navhover}`}>
+              Gallery
+            </Link>
+
+
           </div>
 
         </div>
@@ -72,14 +77,20 @@ const Navbar = () => {
           </div>
 
               <div className="flex flex-col space-y-2 p-4">
-                <Link to="/" className="text-white">
+                <Link to="/" className="text-white" onClick={closeNavbar}>
                   Home
                 </Link>
-                <Link to="/about" className="text-white">
+                <Link to="/about" className="text-white" onClick={closeNavbar}>
                   About
                 </Link>
-                <Link to="/projects" className="text-white">
-                  Services
+                <Link to="/projects" className="text-white" onClick={closeNavbar}>
+                  Projects
+                </Link>
+                <Link to="/gallery" className="text-white" onClick={closeNavbar}>
+                Gallery                  
+                </Link>
+                <Link to="/contact" className="text-white" onClick={closeNavbar}>
+                  Contact us
                 </Link>
               </div>
             </div>
@@ -96,7 +107,7 @@ const Navbar = () => {
           </div>
 
           <div className={`hidden md:flex space-x-4`}>
-            <Link to="/" className="text-gray-800">
+            <Link to="/" className="text-gray-800" >
               Home
             </Link>
             <Link to="/about" className="text-gray-800">
