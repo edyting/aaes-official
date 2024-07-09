@@ -68,7 +68,7 @@ export default function Carousel() {
   pagination={{ clickable: true }}
  
   // scrollbar={{ draggable: true }}
-  className='max-w-screen min-h-[40vh] md:h-[90vh] '
+  className='max-w-screen h-[40vh] md:h-[90vh] '
     >
       
 

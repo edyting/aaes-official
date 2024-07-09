@@ -7,6 +7,7 @@ import { IoHomeOutline } from "react-icons/io5";
 
 
 const Navbar = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {

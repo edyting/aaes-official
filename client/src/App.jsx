@@ -7,6 +7,7 @@ import Feed from './pages/feed/Feed';
 import Projects from './pages/projects/Projects';
 import ProjectDetails from './pages/projects/ProjectDetails';
 import Pastevents from './pages/home/Pastevents';
+import Contact from './pages/contact/Contact';
 
 const router = createBrowserRouter(
   [{
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
         { path: "/about", element: < About / > },
         { path: "/feed", element: < Feed/> },
         {path:"/projects",element:<Projects/>},
+        {path:"/contact",element:<Contact/>},
         {path:"/projects/:id",element:<ProjectDetails/>},
         {path:"/pastevents",element:<Pastevents/>},
 

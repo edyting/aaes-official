@@ -26,7 +26,7 @@ export default function NewFooter() {
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Home</Link> </li>
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>About</Link> </li>
                         <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Project</Link> </li>
-                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Contact Us</Link> </li>
+                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]' to={'contact'}>Contact Us</Link> </li>
                     </ul>
                 </div>
             </div>
