@@ -1,15 +1,31 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import NewFooter from './NewFooter'
 
+
+
 export default function Layout() {
+
+  const location = useLocation();
+
+  const [showNavbar,setShowNavbar]= useState(false);
+
+  useEffect(()=>{
+      if(location.pathname === '/dash'){
+        setShowNavbar(false)
+      }
+      else{
+        setShowNavbar(true)
+      }
+  },[location])
+
   return (
    <div>
     {/* navbar */}
     <div className="mx-0">
-        <Navbar/>
+        {showNavbar && <Navbar/>}
     </div>
     {/* to display dynamic components */}
     <div className="">
@@ -17,7 +33,7 @@ export default function Layout() {
     </div>
     {/* <Footer/> */}
     <div className="">
-    <NewFooter/>        
+    {showNavbar && <NewFooter/> }       
     </div>
    </div>
   )

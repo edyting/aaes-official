@@ -9,6 +9,7 @@ import ProjectDetails from './pages/projects/ProjectDetails';
 import Pastevents from './pages/home/Pastevents';
 import Contact from './pages/contact/Contact';
 import Gallery from './pages/gallery/Gallery';
+import Dashboard from './pages/admin/Dashboard';
 
 const router = createBrowserRouter(
   [{
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         {path:"/projects",element:<Projects/>},
         {path:"/contact",element:<Contact/>},
         {path:"/gallery",element:<Gallery/>},
+        {path:"/dash",element:<Dashboard/>},
         {path:"/projects/:id",element:<ProjectDetails/>},
         {path:"/pastevents",element:<Pastevents/>},
 
