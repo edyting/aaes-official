@@ -7,6 +7,7 @@ import { GrGallery } from "react-icons/gr";
 import { IoPerson } from "react-icons/io5";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { IoMenuSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,6 +21,33 @@ const Dashboard = () => {
     { title: "Gallery", src: <GrGallery />    },
     { title: "Executives", src: <IoPerson />   },
     { title: "Events ", src: <MdOutlineEventAvailable />
+    },
+  ];
+
+  const cards= [
+    {
+      "title": "projects",
+      "len":20,
+      "link":"addprojects",
+      "color":"bg-red-400"
+    },
+    {
+      "title": "gallery",
+      "len":18,
+      "link":"addprojects",
+      "color":"bg-green-400"
+    },
+    {
+      "title": "executives",
+      "len":5,
+      "link":"addprojects",
+      "color":"bg-yellow-400"
+    },
+    {
+      "title": "events",
+      "len":0,
+      "link":"addprojects",
+      "color":"bg-blue-400"
     },
   ];
 
@@ -68,9 +96,26 @@ const Dashboard = () => {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
+      <div className="h-screen w-full p-7">
         {/* main page section */}
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+
+          {/* inner container */}
+          <div className="h-full grid md:grid-cols-4 gap-5 grid-cols-1  md:grid-rows-1 ">
+              {cards.map((card)=>(
+                <div key={card.title} className="flex  items-center" >
+                    {/* cards */}
+                      <div className={`${card.color} w-full rounded-xl h-full  md:h-[50%]`}>
+                            <h2 className="font-bold md:text-5xl  p-4 text-center text-white mt-[10%]">{card.len}</h2>
+                            <h2 className="p-4 text-center text-white capitalize">{card.title}</h2>
+                            {/* link to details */}
+                            <div className="">
+                              <Link>more </Link>
+                            </div>
+                      </div>
+                </div>
+              ))}
+          </div>
+        
       </div>
     </div>
   );
