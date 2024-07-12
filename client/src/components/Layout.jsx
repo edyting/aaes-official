@@ -13,7 +13,7 @@ export default function Layout() {
   const [showNavbar,setShowNavbar]= useState(false);
 
   useEffect(()=>{
-      if(location.pathname === '/dash'){
+      if(location.pathname == '/dash' || location.pathname == '/dash/projects' || location.pathname == '/dash/gallery' || location.pathname == '/dash/events' || location.pathname == '/dash/executives' || location.pathname == '/dash/addproject'){
         setShowNavbar(false)
       }
       else{

@@ -47,7 +47,7 @@ function SingleProject() {
                   </div>
                   {/* button */}
                   <div className="text-start rounded-lg">
-                    <Link to='/projects/[12]/' className='bg-white text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
+                    <Link to='/projects/[12]/' className=' text-white font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
                   </div>
 
              </div>

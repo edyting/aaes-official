@@ -10,6 +10,11 @@ import Pastevents from './pages/home/Pastevents';
 import Contact from './pages/contact/Contact';
 import Gallery from './pages/gallery/Gallery';
 import Dashboard from './pages/admin/Dashboard';
+import ProjectsDashboard from './pages/admin/ProjectsDashboard';
+import GalleryDashboard from './pages/admin/GalleryDashboard';
+import EventsDashboard from './pages/admin/EventsDashboard';
+import ExecutivesDashboard from './pages/admin/ExecutivesDashboard';
+import AddProject from './pages/admin/AddProject';
 
 const router = createBrowserRouter(
   [{
@@ -26,6 +31,12 @@ const router = createBrowserRouter(
         {path:"/dash",element:<Dashboard/>},
         {path:"/projects/:id",element:<ProjectDetails/>},
         {path:"/pastevents",element:<Pastevents/>},
+        {/* dashboard pages */},
+        {path:"/dash/projects",element:<ProjectsDashboard/>},
+        {path:"/dash/gallery/",element:<GalleryDashboard/>},
+        {path:"/dash/events",element:<EventsDashboard/>},
+        {path:"/dash/executives",element:<ExecutivesDashboard/>},
+        {path:"/dash/addproject",element:<AddProject/>},
 
     ]
 }])

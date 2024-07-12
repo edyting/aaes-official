@@ -28,26 +28,30 @@ const Dashboard = () => {
     {
       "title": "projects",
       "len":20,
-      "link":"addprojects",
-      "color":"bg-red-400"
+      "link":"projects",
+      "color":"bg-red-400",
+      "text":"text-red-400"
     },
     {
       "title": "gallery",
       "len":18,
-      "link":"addprojects",
-      "color":"bg-green-400"
+      "link":"gallery",
+      "color":"bg-green-400",
+      "text":"text-green-400"
     },
     {
       "title": "executives",
       "len":5,
-      "link":"addprojects",
-      "color":"bg-yellow-400"
+      "link":"executives",
+      "color":"bg-yellow-400",
+      "text":"text-yellow-400"
     },
     {
       "title": "events",
       "len":0,
-      "link":"addprojects",
-      "color":"bg-blue-400"
+      "link":"events",
+      "color":"bg-blue-400",
+      "text":"text-blue-400"
     },
   ];
 
@@ -106,10 +110,14 @@ const Dashboard = () => {
                     {/* cards */}
                       <div className={`${card.color} w-full rounded-xl h-full  md:h-[50%]`}>
                             <h2 className="font-bold md:text-5xl  p-4 text-center text-white mt-[10%]">{card.len}</h2>
-                            <h2 className="p-4 text-center text-white capitalize">{card.title}</h2>
+                            <h2 className="p-4 text-center text-white text-3xl font-bold capitalize">{card.title}</h2>
                             {/* link to details */}
-                            <div className="">
-                              <Link>more </Link>
+                            <div className="   w-full flex justify-center font-bol text-2xl">
+                              
+                              <button className="px-4 bg-white rounded-[6px] pb-[4px]">
+                              <Link to={`${card.link}`} className={`${card.text}`}>more </Link>
+                              </button>
+                            
                             </div>
                       </div>
                 </div>
