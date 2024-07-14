@@ -38,7 +38,7 @@ function SingleProject() {
             
             {/* descriptive text */}
             <div className="md:max-w-[32rem] h-auto p-auto   md:top-20 md:left-24 ">
-                  <h2 className='md:text-5xl text-2xl capitalize text-start my-2 text-white font-bold'>Top featured projects</h2>
+                  <h2 className='md:text-5xl text-2xl capitalize text-start my-2 text-white font-bold'>Top featured projects </h2>
                   {/* paragraph */}
                   <div className="">
                     <p className='text-start text-white my-8'>

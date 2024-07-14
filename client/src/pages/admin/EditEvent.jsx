@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link } from 'react-router-dom';
 
-export default function AddProject() {
+export default function EditEvent() {
     const [value, setValue] = useState('');
 
     const formats =[
@@ -41,13 +41,13 @@ export default function AddProject() {
                             <label htmlFor="" className="">
                                 Title
                             </label>
-                            <input type="text" className='w-full p-2' />
+                            <input type="text" value={''} className='w-full p-2' />
                         </div>
                         {/* get article on projects */}
                         <div className="">
                         <label htmlFor="" className=''> Article</label>
                         {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
-                        <ReactQuill className='bg-white overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
+                        <ReactQuill  className='bg-white overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
                         </div>
                         {/* get cover photo */}
                         <div className="my-4">

@@ -4,30 +4,17 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link } from 'react-router-dom';
 
-export default function AddProject() {
+export default function AddGallery() {
     const [value, setValue] = useState('');
 
-    const formats =[
-        'header',
-        'bold','italic','underline','strike','blockquote',
-        'list','bullet','indent',
-        'link','image'
-        ]
+ 
 
-        const modules ={
-            toolbar:[
-              [{'header':[1,2,3,4,5,6,false]}],
-              ['bold','italic','underline','strike','blockquote'],
-              [{'list':'ordered'},{'list':'bullet'},{'indent':'1'},{'indent':'+1'}],
-              ['link','image'],
-              ['clean']
-            ],
-          }
+    
 
   return (
     <div className='w-full'>
         <div className=" w-[80%]  flex justify-between items-center py-8 mx-auto">
-            <h2 className='text-4xl font-bold '>Add Project</h2>
+            <h2 className='text-4xl font-bold '>Add Image</h2>
             <Link to={'/dash'} className='text-[#0099ff]'>Back to Dashboard</Link>
         </div>
         {/* container */}
@@ -39,16 +26,17 @@ export default function AddProject() {
                         {/* get title */}
                         <div className=" my-4  flex flex-col ">
                             <label htmlFor="" className="">
-                                Title
+                                Image Caption
                             </label>
-                            <input type="text" className='w-full p-2' />
+                            <input type="text" className=' p-2' />
                         </div>
-                        {/* get article on projects */}
-                        <div className="">
-                        <label htmlFor="" className=''> Article</label>
-                        {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
-                        <ReactQuill className='bg-white overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
-                        </div>
+                        {/* link to google drive */}
+                       <div className="my-4 space-y-2  flex flex-col">
+                        <label htmlFor="">
+                        Gallery Link (eg. from Google Drive or Google Photos)
+                        </label>
+                        <input type="text" placeholder='http://googledrive' className=' p-2'  />
+                       </div>
                         {/* get cover photo */}
                         <div className="my-4">
                             <label htmlFor="">Cover Photo</label>

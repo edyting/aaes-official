@@ -15,6 +15,13 @@ import GalleryDashboard from './pages/admin/GalleryDashboard';
 import EventsDashboard from './pages/admin/EventsDashboard';
 import ExecutivesDashboard from './pages/admin/ExecutivesDashboard';
 import AddProject from './pages/admin/AddProject';
+import EditProject from './pages/admin/EditProject';
+import AddExecutives from './pages/admin/AddExecutives';
+import EditExecutive from './pages/admin/EditExecutives';
+import EditGallery from './pages/admin/EditGallery';
+import EditEvent from './pages/admin/EditEvent';
+import AddGallery from './pages/admin/AddGallery';
+import AddEvent from './pages/admin/AddEvent';
 
 const router = createBrowserRouter(
   [{
@@ -37,7 +44,14 @@ const router = createBrowserRouter(
         {path:"/dash/events",element:<EventsDashboard/>},
         {path:"/dash/executives",element:<ExecutivesDashboard/>},
         {path:"/dash/addproject",element:<AddProject/>},
-
+        {path:"/dash/addexecutives",element:<AddExecutives/>},
+        {path:"/dash/addproject",element:<AddProject/>},
+        {path:"/dash/addevent",element:<AddEvent/>},
+        {path:"/dash/addgallery",element:<AddGallery/> },
+        {path:"/dash/:id/editproject",element:<EditProject/>},
+        {path:"/dash/:id/editexecutive",element:<EditExecutive/> },
+        {path:"/dash/:id/editgallery",element:<EditGallery/>},
+        {path:"/dash/:id/editevent",element:<EditEvent/>},
     ]
 }])
 

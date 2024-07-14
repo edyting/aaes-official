@@ -26,19 +26,19 @@ const images = [{
   id:1
 },{
   image:discuss,
-  title:'Mobile App development',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:2
 },{
   image:success,
-  title:'Project success our greatest priority',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:3
 },{
   image:celebration,
-  title:'celebration of success',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:4
@@ -79,11 +79,11 @@ export default function Carousel() {
             <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] max-w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
             {/* welcome text */}
-            <div className="absolute  w-[60%]  text-white top-[20%] flex text-center flex-col mx-auto md:top-[40%] left-[2rem] md:left-[25%]">
+            <div className="absolute  text-white top-[20%] flex text-center flex-col mx-auto md:top-[40%] left-[10%] md:left-[20%]">
               <h2 className='md:text-[3rem] text-2xl capitalize font-poppins font-bold leading-relaxed '>{image.title}</h2>
               <p className='pl-[2rem] py-[1rem]'>{image.text}</p>
               <div className="pl-[2rem]">
-                <button className='capitalize bg-primary px-3 py-2 font rounded-full'>{image.btn}</button>
+                <button className='capitalize bg-primary border border-white px-3 py-2 font rounded-[5px]'>{image.btn}</button>
               </div>
             </div>
             </div>

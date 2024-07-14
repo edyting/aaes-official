@@ -1,104 +1,83 @@
 import React from 'react'
-import { IoCallOutline } from "react-icons/io5";
-import { IoMailOutline } from "react-icons/io5";
-import { IoLocationOutline } from "react-icons/io5";
-import Newsletter from './Newsletter';
 
-function Footer() {
+
+// icons
+import { FaLinkedin } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaInstagramSquare } from "react-icons/fa";
+import { IoLocation } from "react-icons/io5";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+
+
+
+
+
+export default function NewFooter() {
   return (
-    <div className='bg-[#0099ff] max-w-screen '>
-        {/* flex */}
-      <div className="md:w-[80%] mx-auto md:mx-12 lg:mx-auto">
+    <div>
+        {/* main footer container */}
+        <div className="max-w-[95vw] mb-3 rounded-xl border-2 border-slate-50 mx-auto h-auto bg-[#0099ff]">
             {/* top */}
-            <div className="md:flex md:py-4 grid grid-cols-2 mb-3 md:mb-0 justify-between  md:flex-row text-white space-y-4 text-lg items-center mx-2 md:mx-0">
-                {/* logo */}
-                <div className="col-span-2 text-center">
-                    <h1>LOGO</h1>
-                </div>
-                {/* call us */}
-                <div className="flex items-center gap-2 ">
-                    {/* icon */}
-                    <div className="bg-gray-600  md:p-2 p-1 flex items-center justify-center rounded-full shadow-xl ">
-                    <IoCallOutline className='text-[30px] md:text-[40px]' />
-                    </div>
-                    {/* info */}
-                    <div className="">
-                    <h1 className='capitalize font-bold text-primary'>call us on</h1>
-                    <p className='text-sm'>+233 88 989 5555</p>
-                    </div>
-                </div>
-                {/* mail us */}
-                <div className="flex items-center gap-2">
-                    {/* icon */}
-                    <div className="bg-gray-600  md:p-2 p-1 flex items-center justify-center rounded-full shadow-xl">
-                    <IoMailOutline className='text-[30px] md:text-[40px]' />
-                    </div>
-                    {/* info */}
-                    <div className="">
-                        <h1 className='capitalize font-bold text-primary'>mail us on</h1>
-                        <p className='text-sm'>mailus@gmail.com</p>
-                    </div>
-                </div>
-                {/* location */}
-                <div className="flex items-center gap-2">
-                    {/* icon */}
-                    <div className="bg-gray-600  md:p-2 p-1 flex items-center justify-center rounded-full shadow-xl">
-                    <IoLocationOutline className='text-[30px] md:text-[40px]' />
-                    </div>
-                    {/* info */}
-                    <div className="">
-                        <h1 className='capitalize font-bold text-primary'>location</h1>
-                        <p className='text-sm'>kumasi,ayeduase</p>
-                    </div>
-                </div>
-            </div>
-            {/* line */}
-            <div className="bg-[#6c6d72] h-[0.5px] w-full"></div>
-            {/* middle */}
-            <div className="text-white flex flex-col md:flex-row justify-between py-4">
-                {/* quick links */}
-                <div className="flex space-x-8 mb-2 md:mb-0 lg:mx-4">
-                <div className="">
-                    <div className="flex  items-center gap-1">
-                        <div className="h-2 w-2 bg-muted"></div>
-                    <h1 className='text-primary text-lg font-bold capitaliz'>Quick links</h1>
-                    </div>
-                    <ul className='pl-4'>
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
+            <div className="w-full">
+                <div className="w-[80%]  md:py-5 mx-auto bg-green h-auto">
+                    <ul className='md:grid-cols-5 grid-cols-2 grid gap-y-3 py-2 '>
+                        <li className='font-bold text-2xl text-white col-span-2 md:col-span-5 py-2'>logo</li>
+                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Home</Link> </li>
+                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>About</Link> </li>
+                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]'>Project</Link> </li>
+                        <li> <Link className='bg-[#6c6d72] px-2 py-1 text-white rounded-[10px]' to={'contact'}>Contact Us</Link> </li>
                     </ul>
-                </div>
-                {/* social media */}
-                <div className="">
-                <div className="flex  items-center gap-1">
-                        <div className="h-2 w-2 bg-muted"></div>
-                    <h1 className='text-primary text-lg font-bold capitalize'>social media</h1>
-                    </div>
-                    <ul className='pl-4'>
-                        <li>facebook</li>
-                        <li>facebook</li>
-                        <li>facebook</li>
-                        <li>facebook</li>
-                    </ul>
-
-                </div>
-                </div>
-                {/* newsletter */}
-                <div className="md:ml-6 lg:ml-0 ml-0">
-                    <Newsletter/>
                 </div>
             </div>
              {/* line */}
-             <div className=" bg-[#6c6d72] h-[0.5px] w-full"></div>
-            {/* bottom */}
-            <div className="py-4 md:py-2 flex items-center justify-center text-white">
-                    <p>@copyright 2024</p>
+             <div className="w-full">
+             <div className=" bg-[#6c6d72] h-[0.5px] w-[90%] mx-auto"></div>
+             </div>
+            {/* middle */}
+            <div className="">
+                <div className="w-[80%] mx-auto  md:py-6 py-3  md:flex grid grid-cols-1  justify-between ">
+                    {/* msg */}
+                    <div className="">
+                    <h1 className='text-2xl text-white capitalize py-2 font-bold'>suscribe</h1>
+                    <p className='capitalize text-sm font-poppins pb-2'>join our mailing list and get our news </p>
+                    </div>
+                    {/* input */}
+                    <div className="">
+                    <form action="" className='flex gap-2'>
+                    <input type="text" placeholder='your email address' name="" id="" className='rounded-xl  px-6 w-full py-2' />
+                    <input type="submit" className='text-white px-4 bg-slate-400 rounded-xl' value="Suscribe" />
+                    </form>
+                    </div>
+                </div>
             </div>
-      </div>
+          {/* line */}
+          <div className="w-full">
+             <div className=" bg-[#6c6d72] h-[0.5px] w-[90%] mx-auto"></div>
+             </div>
+            {/* buttom */}
+            <div className="w-full  py-4">
+                <div className="w-[80%] md:flex grid grid-cols-1 grid-rows-2 gap-y-8 justify-between mx-auto">
+                    {/* left */}
+                    <div className="font-lobster">
+                        @copyright 2024 Lorem ipsum dolor sit  <Link to={'/dash'}>amet.</Link>
+                    </div>
+                    {/* right */}
+                    <div className="row-start-1 py- md:py-0">
+                    <ul className='grid-cols-5 gap-10 grid '>
+                        <li> <Link className='text-white text-[2rem]'> <FaLinkedin /> </Link> </li>
+                        <li>  <Link className='text-white text-[2rem]'> <FaSquareXTwitter />
+                        </Link> </li>
+                        <li>   <Link className='text-white text-[2rem]'> <FaInstagramSquare />
+                        </Link></li>
+                        <li> <Link className='text-white text-[2rem]'> <FaPhoneSquareAlt />
+                        </Link></li>
+                        <li> <Link className='text-white text-[2rem]'> <IoLocation />  </Link></li>
+                    </ul>
+                    </div>
+            </div>
+            </div>
+        </div>
     </div>
   )
 }
-
-export default Footer

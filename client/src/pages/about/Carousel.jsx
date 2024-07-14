@@ -32,7 +32,7 @@ export default function Carousel() {
   // autoplay={{delay:5000}}
   // pagination={{ clickable: true }}
   // scrollbar={{ draggable: true }}
-  className='w-screen md:h-[90vh] '
+  className='w-full md:h-[90vh] '
     >
       
 

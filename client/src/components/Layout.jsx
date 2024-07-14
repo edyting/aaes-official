@@ -13,12 +13,36 @@ export default function Layout() {
   const [showNavbar,setShowNavbar]= useState(false);
 
   useEffect(()=>{
-      if(location.pathname == '/dash' || location.pathname == '/dash/projects' || location.pathname == '/dash/gallery' || location.pathname == '/dash/events' || location.pathname == '/dash/executives' || location.pathname == '/dash/addproject'){
-        setShowNavbar(false)
-      }
-      else{
-        setShowNavbar(true)
-      }
+
+        // Match paths that should not show the navbar
+        const hideNavbarPaths = [
+          '/dash',
+          '/dash/projects',
+          '/dash/gallery',
+          '/dash/events',
+          '/dash/executives',
+          '/dash/addproject',
+          '/dash/addexecutives',
+          // Add other paths here as needed
+        ];
+
+
+      // if(location.pathname == '/dash' || location.pathname == '/dash/projects' || location.pathname == '/dash/gallery' || location.pathname == '/dash/events' || location.pathname == '/dash/executives' || location.pathname == '/dash/addproject' || location.pathname == '/dash/:id/edit'){
+      //   setShowNavbar(false)
+      // }
+      // else{
+      //   setShowNavbar(true)
+      // }
+
+      // using regular expression
+  // Check if current path matches any of the hideNavbarPaths or /dash/:id/edit
+      // Check if current path matches any of the hideNavbarPaths or starts with /dash or /projects/:id
+      const matchHideNavbarPaths = hideNavbarPaths.includes(location.pathname) || 
+      /^\/dash.*/.test(location.pathname) || 
+      /^\/projects\/[^/]+$/.test(location.pathname);
+
+    setShowNavbar(!matchHideNavbarPaths);
+
   },[location])
 
   return (

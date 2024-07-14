@@ -17,10 +17,14 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Project", src: <GrProjects />    },
-    { title: "Gallery", src: <GrGallery />    },
-    { title: "Executives", src: <IoPerson />   },
-    { title: "Events ", src: <MdOutlineEventAvailable />
+    { title: "Project", src: <GrProjects />,
+      "link":"projects",    },
+    { title: "Gallery", src: <GrGallery /> ,
+      "link":"gallery",   },
+    { title: "Executives", src: <IoPerson /> ,
+      "link":"executives",  },
+    { title: "Events ", src: <MdOutlineEventAvailable />,
+      "link":"events",
     },
   ];
 
@@ -94,7 +98,7 @@ const Dashboard = () => {
             >
               <p className="text-white"> {Menu.src} </p>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
+                <Link to={`${Menu.link}`}>{Menu.title}</Link>
               </span>
             </li>
           ))}

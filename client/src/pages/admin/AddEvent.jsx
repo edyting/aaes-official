@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link } from 'react-router-dom';
 
-export default function AddProject() {
+export default function AddEvent() {
     const [value, setValue] = useState('');
 
     const formats =[
@@ -27,7 +27,7 @@ export default function AddProject() {
   return (
     <div className='w-full'>
         <div className=" w-[80%]  flex justify-between items-center py-8 mx-auto">
-            <h2 className='text-4xl font-bold '>Add Project</h2>
+            <h2 className='text-4xl font-bold '>Add Event</h2>
             <Link to={'/dash'} className='text-[#0099ff]'>Back to Dashboard</Link>
         </div>
         {/* container */}
@@ -43,12 +43,22 @@ export default function AddProject() {
                             </label>
                             <input type="text" className='w-full p-2' />
                         </div>
-                        {/* get article on projects */}
-                        <div className="">
-                        <label htmlFor="" className=''> Article</label>
-                        {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
-                        <ReactQuill className='bg-white overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
+                         {/* get venue */}
+                         <div className=" my-4  flex flex-col ">
+                            <label htmlFor="" className="">
+                                Venue
+                            </label>
+                            <input type="text" className='w-full p-2' />
                         </div>
+
+                         {/* get time */}
+                         <div className=" my-4  flex flex-col ">
+                            <label htmlFor="" className="">
+                                Time
+                            </label>
+                            <input type="text" className='w-full p-2' />
+                        </div>
+
                         {/* get cover photo */}
                         <div className="my-4">
                             <label htmlFor="">Cover Photo</label>

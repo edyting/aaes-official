@@ -70,20 +70,21 @@ export default function ProjectsDashboard() {
                    <div className="w-8/12  pl-8">
                       {/* title */}
                       <div className="">
-                        <h2 className='text-3xl capitalize '>{project.title}</h2>
+                        <h2 className='text-3xl capitalize '>Title:{project.title}</h2>
                       </div>
                       {/* details */}
                       <div className="">
-                        <p>{project.article.split('').slice(0,80)} ...</p>
+                        <p>Article:{project.article.split('').slice(0,80)} ...</p>
                       </div>
                    </div>
 
                    {/* crud buttons */}
                    <div className="w-2/12 flex items-center justify-between p-4">
                       {/* edit */}
-                      <div className="flex text-green-400 items-center gap-2">
+                      <div >
+                       <Link to={`/dash/${project.id}/edit`} className="flex text-green-400 items-center gap-2">
                         <p>Edit</p>
-                        <MdEditNote className='text-xl'/>
+                       <MdEditNote className='text-xl'/></Link>
                       </div>
                       {/* delete */}
                       <div className=" flex text-red-400 items-center gap-2">
