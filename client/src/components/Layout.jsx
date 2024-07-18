@@ -23,6 +23,7 @@ export default function Layout() {
           '/dash/executives',
           '/dash/addproject',
           '/dash/addexecutives',
+          '/login',
           // Add other paths here as needed
         ];
 

@@ -47,7 +47,7 @@ export default function GalleryDashboard() {
       <div className="w-full">
         {/* dashboard title */}
         <div className="w-[90%] mx-auto py-5 flex justify-between items-center">
-          <h2 className='text-5xl font-bold text-[#0099ff]  '>Project Dashboard</h2>
+          <h2 className='text-5xl font-bold text-[#0099ff]  '>Gallery Dashboard</h2>
           <Link to={`/dash`}>Back to Dashboard</Link>
         </div>
         {/* create */}

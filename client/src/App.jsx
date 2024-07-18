@@ -22,6 +22,7 @@ import EditGallery from './pages/admin/EditGallery';
 import EditEvent from './pages/admin/EditEvent';
 import AddGallery from './pages/admin/AddGallery';
 import AddEvent from './pages/admin/AddEvent';
+import Login from './pages/admin/Login';
 
 const router = createBrowserRouter(
   [{
@@ -52,6 +53,7 @@ const router = createBrowserRouter(
         {path:"/dash/:id/editexecutive",element:<EditExecutive/> },
         {path:"/dash/:id/editgallery",element:<EditGallery/>},
         {path:"/dash/:id/editevent",element:<EditEvent/>},
+        {path:"/login",element:<Login/> },
     ]
 }])
 

@@ -28,12 +28,13 @@ function Eventsection() {
       </div>
       
        {/* button */}
-       <div className="">
+       {/* <div className="">
          <button className='capitalize text-[#0099ff] border-primary  border-2 mt-4 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] ml-2 rounded-xl hover:text-primary'>
-           {/* {!eventstate ? " view next event": " view past events"}   */}
+         
            <Link to={'/pastevents'}> View Past Events</Link>
          </button>
-       </div>
+       </div> */}
+       
      </div>
       </div>
    </div>

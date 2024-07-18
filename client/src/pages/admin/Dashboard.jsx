@@ -25,6 +25,9 @@ const Dashboard = () => {
       "link":"executives",  },
     { title: "Events ", src: <MdOutlineEventAvailable />,
       "link":"events",
+    }, 
+    { title: "Home ", src: <MdOutlineEventAvailable />,
+      "link":"/",
     },
   ];
 

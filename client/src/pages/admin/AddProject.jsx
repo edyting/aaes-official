@@ -28,36 +28,36 @@ export default function AddProject() {
     <div className='w-full'>
         <div className=" w-[80%]  flex justify-between items-center py-8 mx-auto">
             <h2 className='text-4xl font-bold '>Add Project</h2>
-            <Link to={'/dash'} className='text-[#0099ff]'>Back to Dashboard</Link>
+            <Link to={'/dash/projects'} className='text-[#0099ff]'>Back to Projects</Link>
         </div>
         {/* container */}
         <div className="w-[80%] mx-auto">
                 {/* form */}
                 <form action="">
                     {/* form content container */}
-                    <div className="bg-[#0099ff] p-4">
+                    <div className="bg-slate-100 rounded-xl p-4">
                         {/* get title */}
                         <div className=" my-4  flex flex-col ">
-                            <label htmlFor="" className="">
+                            <label htmlFor="" className="text-[#0099ff] text-xl">
                                 Title
                             </label>
-                            <input type="text" className='w-full p-2' />
+                            <input type="text" placeholder='Enter Title' className='w-full rounded-[5px] p-2' />
                         </div>
                         {/* get article on projects */}
                         <div className="">
-                        <label htmlFor="" className=''> Article</label>
+                        <label htmlFor="" className='text-xl text-[#0099ff]'> Article</label>
                         {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
-                        <ReactQuill className='bg-white overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
+                        <ReactQuill className='bg-white rounded-xl overflow-scroll h-[15rem]' modules={modules} onChange={setValue} value={value} formats={formats}/>
                         </div>
                         {/* get cover photo */}
                         <div className="my-4">
-                            <label htmlFor="">Cover Photo</label>
-                            <input type="file" accept='image/*' alt="cover photo" />
+                            <label htmlFor="" className='text-xl text-[#0099ff]'>Cover Photo</label>
+                            <input type="file" accept='image/*'  className='text-[#0099ff]' alt="cover photo" />
                         </div>
 
                         {/* submit form */}
                         <div className="w-full flex justify-center">
-                        <input type="submit" value="Add Project" className='bg-white px-2 py-1 mx-auto' />
+                        <input type="submit" value="Add Project" className='bg-white border border-[#0099ff] rounded px-2 py-1 mx-auto' />
                         </div>
                     </div>
                 </form>

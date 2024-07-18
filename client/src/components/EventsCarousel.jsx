@@ -88,8 +88,8 @@ export default function EventsCarousel({items}) {
 
                {/* time & venue*/}
             <div className="flex justify-between pt-2 ">
-              <div className="">
-                Time:{item.time}
+              <div className="flex gap-1">
+                Time: <p className="text-[#0099ff] ">{item.time}</p>
               </div>
               <div className="">
                 Venue:{item.venue}

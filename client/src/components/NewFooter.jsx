@@ -66,7 +66,7 @@ export default function NewFooter() {
                     </ul>
                     {/* bottom */}
                     <div className="font-lobster">
-                        @copyright 2024 Lorem ipsum dolor sit  <Link to={'/dash'}>amet.</Link>
+                        @copyright 2024 Lorem ipsum dolor sit  <Link to={'/login'}>amet.</Link>
                     </div>
                     </div>
             </div>
