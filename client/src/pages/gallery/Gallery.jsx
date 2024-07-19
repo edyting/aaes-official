@@ -13,6 +13,10 @@ import image8 from '../../assets/avatar6.jpg'
 
 export default function Gallery() {
 
+    useEffect(()=>{
+        window.scrollTo(0,0)
+      },[]);
+
     let cards=[{image:image1,title:'Shoo Phar Dhie',id:1,text:'CEO'},
         {image:image2,title:'Shoo Phar Dhie',text:'CEO',id:2},
         {image:image3,title:'Shoo Phar Dhie',text:'CEO',id:3},
