@@ -58,7 +58,7 @@ let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
 
 export default function ProjectCarousel() {
   return (
-    <div className='w-full h-full'>
+    <div className='w-full  h-full'>
          <Swiper
   modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay]}
   spaceBetween={50}
@@ -74,8 +74,8 @@ export default function ProjectCarousel() {
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
 
-            <div className=" relative rounded-2xl bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
-            <img className='absolute mix-blend-overlay ease-linear rounded-2xl transition object-cover w-full h-full ' src={image.image} alt="" />
+            <div className=" relative rounded-2xl  w-full h-full">
+            <img className='absolute mix-blend-overlay ease-linear  rounded-2xl transition object-cover w-full h-full ' src={image.image} alt="" />
             </div>
           </SwiperSlide>
           ))}

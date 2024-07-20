@@ -15,7 +15,7 @@ function Second() {
       show:{
         scale:1,opacity:1,
         transition:{
-          duration:2.5,delay:1,ease:"easeIn"
+          duration:2,ease:"easeIn",type: "spring", stiffness: 30
         }
       }
     }
@@ -23,14 +23,26 @@ function Second() {
     // setting up the image reveal animation
     const mainControls = useAnimation();
     const slideControls = useAnimation();
+    const textControls = useAnimation();
 
     const imageContainer = useRef(null);
     const isInView = useInView(imageContainer,{once:true} )
+
+    const textVariant={
+      hidden:{
+        scale:0,opacity:0
+      },
+      show:{
+        scale:1,opacity:1,
+        transition:{ duration: 2.5,type: "spring", stiffness: 30,delay:.7 }
+      }
+    }
 
     useEffect(()=>{
       if(isInView){
        mainControls.start("show");
        slideControls.start("show");
+       textControls.start("show")
       }
       
     },[isInView])
@@ -96,30 +108,34 @@ function Second() {
 
 
         {/* right */}
-        <div className=" flex items-center  justify-center">
+        <div className=" flex items-center  justify-end  text-right">
           {/* text */}
           <motion.div className="md:text-start md:max-w-2/5 leading-loose  " 
+            variants={textVariant}
+             animate={textControls}
+             initial="hidden"
              
           >
 
-              <motion.h2 className='capitalize overflow-hidden h-auto font-poppins md:text-5xl text-3xl  font-bold text-[#0099ff]'
-           initial={{opacity:0,y:-75}}
-           animate={{opacity:1,y:0}}
-           transition={{ease:"easeIn",duration:.7, }}
-              >Get to know more about us</motion.h2>
-            <motion.p className='font-roboto md:text-lg'
+             <div className="md:w-[70%] md:mx-auto">
+               <motion.h2 className='capitalize overflow-hidden h-auto font-poppins text-right md:text-5xl text-3xl ml-auto  font-bold text-[#0099ff]'
+
+              >Get to  know <br/> more about us</motion.h2>
+            <motion.p className='font-roboto  md:text-lg text-right' 
           
             >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, quae quod voluptate tenetur earum rem saepe consequuntur quasi unde, quia veritatis expedita sed, numquam accusantium aperiam! Eaque fugiat excepturi nostrum.</motion.p>
             {/* button */}
-            <motion.button className=' font-roboto md:text-[#0099ff] border border-[#0099ff] bg-[#0099ff] text-center text-white md:bg-white rounded-xl mt-2 px-3 py-2 block mx-auto text-lg'
+
+            <motion.button className=' font-roboto md:text-[#0099ff] border border-[#0099ff] bg-[#0099ff] text-end text-white md:bg-white rounded-xl mt-2 px-3 py-2 block ml-auto  text-lg'
               initial={{scale:0.5,opacity:0,}}
               animate={{scale:1,opacity:1}}
-              transition={{ease:"easeIn",duration:1, type:"spring", stiffness:50}}
+              transition={{ease:"easeIn",duration:1, type:"spring", stiffness:10}}
             >
               <Link to={'/about'}>
               See more
               </Link>
             </motion.button>
+             </div>
           </motion.div>
         </div>
       </div>
