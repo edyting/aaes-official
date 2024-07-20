@@ -17,7 +17,7 @@ function Upcoming() {
       description: "Description for Item 1",
       date:"Feb 09,2024",
       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"15:00-19:00",
+      time:"Upcoming",
       venue:"online",
       img:image1,
       button:"RSVP",
@@ -28,7 +28,7 @@ function Upcoming() {
       description: "Description for Item 1",
       date:"Feb 09,2024",
       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"15:00-19:00",
+      time:"past",
       venue:"online",
       img:image2,
       button:"RSVP",
@@ -39,7 +39,7 @@ function Upcoming() {
       description: "Description for Item 1",
       date:"Feb 09,2024",
       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"15:00-19:00",
+      time:"past",
       venue:"online",
       img:image3,
       button:"RSVP",
@@ -50,7 +50,7 @@ function Upcoming() {
       description: "Description for Item 1",
       date:"Feb 09,2024",
       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"15:00-19:00",
+      time:"Past",
       venue:"online",
       img:image3,
       button:"RSVP",
@@ -77,13 +77,13 @@ function Upcoming() {
     {/* cards container */}
     {/* view name  */}
     <div className="">
-      <h1 className='text-2xl text-[#0099ff] py-2 font-bold'>UPCOMING EVENTS</h1>
+      {/* <h1 className='text-2xl text-[#0099ff]  font-bold'>UPCOMING EVENTS</h1> */}
     </div>
     <div className="relative">
 
 
      <div className="relative md:w-full md:overflow-hidden">
-      <div className="flex justify-between items-center  w-full  md:h-full">
+      <div className="flex justify-between items-center w-full  md:h-full">
       <EventsCarousel items={items} />
        
       </div>

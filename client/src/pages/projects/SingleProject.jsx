@@ -27,9 +27,9 @@ function SingleProject() {
 
   return (
     <div>
-      <div className='mt-4 md:mt-12 flex flex-col  md:relative '>
+      <div className='mt-4 md:mt-12 flex flex-col   '>
         {/* container start */}
-        <div className="md:h-[60vh] w-full  bg-[#0099ff] ">
+        <div className="md:h-auto w-[95%] mx-auto rounded-xl  bg-[#0099ff] md:relative ">
             
             {currentproject.map((project)=>(
                 // container
@@ -37,17 +37,17 @@ function SingleProject() {
   
             
             {/* descriptive text */}
-            <div className="md:w-[32rem] h-[24rem]  md:absolute md:top-20 md:left-24 ">
-                  <h2 className='md:text-5xl text-2xl capitalize text-center my-2 text-white font-bold'>Top featured projects</h2>
+            <div className="md:max-w-[32rem] h-auto p-auto   md:top-20 md:left-24 ">
+                  <h2 className='md:text-5xl text-2xl capitalize text-start my-2 text-white font-bold'>Top featured projects </h2>
                   {/* paragraph */}
                   <div className="">
-                    <p className='text-center text-white my-8'>
+                    <p className='text-start text-white my-8'>
                         {project.desc}
                     </p>
                   </div>
                   {/* button */}
-                  <div className="text-center rounded-lg">
-                    <Link to='/projects/[12]/' className='bg-white text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
+                  <div className="text-start rounded-lg">
+                    <Link to='/projects/[12]/' className=' text-white font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
                   </div>
 
              </div>
@@ -67,9 +67,10 @@ function SingleProject() {
             ))}
         </div>
         {/* container start */}
-        <div className="md:bg-[url('../../../public/wave.svg')] md:h-[15rem]  bg-cover bg-no-repeat w-full " >
+        <div className="md:bg-[url('../../../public/wave.svg')] md:h-[15rem] h-full bg-cover bg-no-repeat w-full " >
         </div>
     </div>
+  
     </div>
   )
 }

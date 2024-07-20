@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema({
+const projectsSchema = new Schema({
     title: { type: String, required: true },
-    content: { type: String, required: true },
+    article: { type: String, required: true },
+    image:{type:String},
     author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 },{
     timestamps: true
 });
 
-export const Post = mongoose.model('Post', postSchema);
+export const projects = mongoose.model('projects', projectsSchema);

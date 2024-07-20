@@ -3,7 +3,7 @@ import image from '../../assets/blog62.jpg'
 
 function Second() {
   return (
-    <div className='md:mt-8 mt-4 mb-12 mx-[1rem] md:mx-[2rem]'>
+    <div className='md:mt-8  mt-4 mb-12 mx-[1rem] md:mx-[2rem]'>
     
 
       {/* flex */}

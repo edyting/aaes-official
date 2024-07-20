@@ -11,6 +11,8 @@ export default function Projects() {
   return (
     <div>
       <Post/>
+      {/* pagination */}
+      <div className="w-[10re h-20 text-right bg-blue-200"></div>
     </div>
   )
 }

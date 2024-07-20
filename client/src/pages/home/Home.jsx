@@ -8,12 +8,14 @@ import Events from '../feed/Events'
 import ExecutiveDisplay from '../about/ExecutiveDisplay'
 import EventsCarousel from '@/components/EventsCarousel'
 import ExecutiveShow from '../about/ExecutiveShow'
+import NewSingleProject from '../projects/NewSingleProject'
+import LibraryIntro from './LibraryIntro'
 
 export default function Home() {
   // to bring page to top
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[]);
   return (
     <div>
         <Carousel/>
@@ -21,7 +23,10 @@ export default function Home() {
         <Second/>
 
         {/* projects -prelude */}
-        <SingleProject/>
+        {/* <SingleProject/> */}
+
+        {/* new single project */}
+        <NewSingleProject/>
 
         {/* evets-section */}
         <Eventsection/>
@@ -32,6 +37,9 @@ export default function Home() {
 
         {/* executive show */}
         <ExecutiveShow/>
+        
+        {/* library introduction */}
+        <LibraryIntro/>
     </div>
   )
 }

@@ -70,13 +70,13 @@ export default function EventsCarousel({items}) {
     //   ];
 
   return (
-    <div className='md:w-[90vw] block w-full md:h-[30rem] h-[25rem] relative md:mx-auto '>
+    <div className='md:w-[90vw] block w-full relative md:mx-auto '>
     <Carousel className="w-full h-full mx-aut ">
       <CarouselContent className="-ml-1">
         {items.map((item,) => (
-          <CarouselItem key={item.id} className="pl-1 basi md:basis-1/2 lg:basis-1/3  ">
+          <CarouselItem key={item.id} className="pl-1  md:basis-1/2 lg:basis-1/3  ">
             <div className="p-1 ">
-              <div className="w-full rounded-lg shadow p-4">
+              <div className="w-full rounded-xl shadow p-4">
             <div className="text-">
               {item.date}
             </div>
@@ -88,8 +88,8 @@ export default function EventsCarousel({items}) {
 
                {/* time & venue*/}
             <div className="flex justify-between pt-2 ">
-              <div className="">
-                Time:{item.time}
+              <div className="flex gap-1">
+                Time: <p className="text-[#0099ff] ">{item.time}</p>
               </div>
               <div className="">
                 Venue:{item.venue}
@@ -102,8 +102,8 @@ export default function EventsCarousel({items}) {
       </CarouselContent>
       {/* navigation */}
       <div className="flex  top-[24rem]  right-16 justify-between  gap-10 w-[20%]  absolute md:relative">
-      <CarouselPrevious className=" w-[5rem]  "/>
-      <CarouselNext className="w-[5rem]  "/>
+      {/* <CarouselPrevious className=" w-[5rem]  "/>
+      <CarouselNext className="w-[5rem]  "/> */}
       </div>
     </Carousel>
 

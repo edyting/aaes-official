@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+// framer motion
+import { motion } from "framer-motion"
+
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -26,19 +29,19 @@ const images = [{
   id:1
 },{
   image:discuss,
-  title:'Mobile App development',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:2
 },{
   image:success,
-  title:'Project success our greatest priority',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:3
 },{
   image:celebration,
-  title:'celebration of success',
+  title:'Welcome to QF Technologies',
   text:'we will help build modern technologies',
   btn:'Find out more',
   id:4
@@ -52,7 +55,7 @@ console.log(winsize);
 // dynamic attribute
 let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
 
-console.log(showNavigation,winsize);
+
 
 export default function Carousel() {
 
@@ -63,11 +66,12 @@ export default function Carousel() {
   spaceBetween={50}
   effect="fade"
   slidesPerView={1}
-  navigation
+  
   autoplay={{delay:5000}}
   pagination={{ clickable: true }}
+ 
   // scrollbar={{ draggable: true }}
-  className='w-screen h-[40vh] md:h-[90vh] '
+  className='max-w-screen h-[40vh] md:h-[90vh] '
     >
       
 
@@ -75,17 +79,36 @@ export default function Carousel() {
         <div className="w-full h-full">
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
-            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
+            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] max-w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
             {/* welcome text */}
-            <div className="absolute text-white top-[30%] md:top-[45%] left-[2rem] md:left-[10rem]">
-              <h2 className='md:text-[3rem] text-2xl capitalize font-poppins font-bold '>{image.title}</h2>
-              <p className='pl-[2rem] py-[1rem]'>{image.text}</p>
-              <div className="pl-[2rem]">
-                <button className='capitalize bg-primary px-3 py-2 font rounded-full'>{image.btn}</button>
+            <div className=" w-full h-full  text-white  flex text-center flex-col mx-auto ">
+            {/* content container */}
+            <div className="my-auto ">
+            <motion.h2 className='md:text-[3rem]  text-2xl capitalize font-poppins font-bold leading-relaxed '
+              
+              >{image.title}</motion.h2>
+             
+             <div className="  md:py-[1rem">
+             <p className=''>{image.text}</p>
+             </div>
+
+              <div className="pl-[2rem] my-8 ">
+                <motion.button className='capitalize bg-primary border border-white px-3 py-2 font rounded-[5px]'
+                animate={{y:0,opacity:1}}
+                initial={{y:200,opacity:0}}
+                transition={{ duration: 1.5,type: "spring", stiffness: 30 }}
+                >{image.btn}</motion.button>
               </div>
+
             </div>
+
+
             </div>
+
+
+            </div>
+            
             
           </SwiperSlide>
           ))}
