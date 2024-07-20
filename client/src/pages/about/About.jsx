@@ -5,6 +5,9 @@ import Mission from './Mission'
 import Executive from './Executive'
 
 export default function About() {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[]);
   return (
     <div>
       {/* carousel */}

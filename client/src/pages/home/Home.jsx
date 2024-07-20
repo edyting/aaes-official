@@ -13,9 +13,9 @@ import LibraryIntro from './LibraryIntro'
 
 export default function Home() {
   // to bring page to top
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[]);
   return (
     <div>
         <Carousel/>

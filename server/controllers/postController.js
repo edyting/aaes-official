@@ -1,4 +1,4 @@
-import {Post} from '../models/post.js';
+import {projects} from '../models/projects.js';
 
 // Utility function for handling errors
 const handleError = (res, error) => {
@@ -6,8 +6,8 @@ const handleError = (res, error) => {
     res.status(500).json({ message: error.message || 'Internal Server Error' });
 };
 
-// Create Post
-export const createPost = async (req, res) => {
+// Create projects
+export const createprojects = async (req, res) => {
     try {
         const { title, content } = req.body;
 
@@ -21,51 +21,51 @@ export const createPost = async (req, res) => {
             return res.status(400).json({ message: 'Title and content are required' });
         }
 
-        const post = new Post({
+        const projects = new projects({
             title,
             content,
             author: req.session.userId // Set the author as the current logged-in user
         });
 
-        await post.save();
-        res.status(201).json(post);
+        await projects.save();
+        res.status(201).json(projects);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Get All Posts
-export const getAllPosts = async (req, res) => {
+// Get All projectss
+export const getAllprojectss = async (req, res) => {
     try {
-        const posts = await Post.find().populate('author', 'username');
-        res.status(200).json(posts);
+        const projectss = await projects.find().populate('author', 'username');
+        res.status(200).json(projectss);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Get Post by ID
-export const getPostById = async (req, res) => {
+// Get projects by ID
+export const getprojectsById = async (req, res) => {
     try {
         const { id } = req.params;
 
         // Validate ID format
         if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid post ID format' });
+            return res.status(400).json({ message: 'Invalid projects ID format' });
         }
 
-        const post = await Post.findById(id).populate('author', 'username');
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
+        const projects = await projects.findById(id).populate('author', 'username');
+        if (!projects) {
+            return res.status(404).json({ message: 'projects not found' });
         }
-        res.status(200).json(post);
+        res.status(200).json(projects);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Update Post
-export const updatePost = async (req, res) => {
+// Update projects
+export const updateprojects = async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
@@ -77,17 +77,17 @@ export const updatePost = async (req, res) => {
 
         // Validate ID format
         if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid post ID format' });
+            return res.status(400).json({ message: 'Invalid projects ID format' });
         }
 
-        const post = await Post.findById(id);
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
+        const projects = await projects.findById(id);
+        if (!projects) {
+            return res.status(404).json({ message: 'projects not found' });
         }
 
-        // Check if the logged-in user is the author of the post
-        if (post.author.toString() !== req.session.userId) {
-            return res.status(403).json({ message: 'User not authorized to update this post' });
+        // Check if the logged-in user is the author of the projects
+        if (projects.author.toString() !== req.session.userId) {
+            return res.status(403).json({ message: 'User not authorized to update this projects' });
         }
 
         // Validate input
@@ -95,15 +95,15 @@ export const updatePost = async (req, res) => {
             return res.status(400).json({ message: 'Title and content are required' });
         }
 
-        const updatedPost = await Post.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
-        res.status(200).json(updatedPost);
+        const updatedprojects = await projects.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
+        res.status(200).json(updatedprojects);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Delete Post
-export const deletePost = async (req, res) => {
+// Delete projects
+export const deleteprojects = async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -114,21 +114,21 @@ export const deletePost = async (req, res) => {
 
         // Validate ID format
         if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid post ID format' });
+            return res.status(400).json({ message: 'Invalid projects ID format' });
         }
 
-        const post = await Post.findById(id);
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
+        const projects = await projects.findById(id);
+        if (!projects) {
+            return res.status(404).json({ message: 'projects not found' });
         }
 
-        // Check if the logged-in user is the author of the post
-        if (post.author.toString() !== req.session.userId) {
-            return res.status(403).json({ message: 'User not authorized to delete this post' });
+        // Check if the logged-in user is the author of the projects
+        if (projects.author.toString() !== req.session.userId) {
+            return res.status(403).json({ message: 'User not authorized to delete this projects' });
         }
 
-        await post.remove();
-        res.status(200).json({ message: 'Post deleted successfully' });
+        await projects.remove();
+        res.status(200).json({ message: 'projects deleted successfully' });
     } catch (error) {
         handleError(res, error);
     }

@@ -4,7 +4,7 @@ export default function LibraryIntro() {
   return (
     <div>
         {/* outer container */}
-        <div className="w-full bg-gree h-[30vh] my-5">
+        <div className="w-full bg-gree h-[35vh] my-5">
             {/* inner container */}
             <div className="w-[95%] h-full   mx-auto rounded-xl library">
                 {/* text */}

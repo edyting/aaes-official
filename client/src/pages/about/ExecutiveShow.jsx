@@ -20,22 +20,22 @@ const ExecutiveShow = () => {
    <div className="w-[95%] mx-auto border rounded-xl border-[#0099ff]">
 
    <div className=" ">
-         <div className="">
+         <div className="w-[90%] mx-auto">
             <h2 className='md:text-4xl text-2xl py-3 font-bold text-[#0099ff]'>Meet Our Executives</h2>
         </div>
 
             {/* cards container */}
             <div className="md:w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-1   md:gap-x-4 gap-4  md:p-4 grid-cols-1 grid-rows-2 ">
                 {cards.map((card)=>(
-                <div className="w-[90%] mx-auto h-auto mb-2 rounded-xl ">
+                <div className="w-[90%] mx-auto border shadow-lg border-[#0099ff] h-auto mb-2 rounded-xl ">
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
-                    <div className="max-w-full h-full shadow rounded-xl mx-auto">
-                        <img src={card.image} alt="" className="w-[100%] rounded-xl h-[90%]" />
+                    <div className="max-w-full h-full shadow rounded-t-xl mx-auto">
+                        <img src={card.image} alt="" className="w-[100%] rounded-t-xl h-[90%]" />
                     </div>
                     {/* text-card */}
-                    <div className=" w-[95%] md:h-[4rem] mt-4 mb-4 ">
+                    <div className=" w-[95%] md:h-[4rem] text-center mt-4 mb-4 ">
                         <h2 className='md:text-xl font-medium '>{card.title}</h2>
                         <p className='font-poppins text-[#0099ff]'>{card.text}</p>
                     </div>
@@ -46,7 +46,7 @@ const ExecutiveShow = () => {
           
         </div>
           {/* button */}
-          <div className="ml-1">
+          <div className="w-[90%] mx-auto   ">
         <button className='capitalize text-[#0099ff] border-primary  border-2 px-4 py-2 mb-4  hover:text-white hover:bg-[#0099ff] rounded-xl hover:text-primary'>
            {/* {!eventstate ? " view next event": " view past events"}   */}
            <HashLink to={"/about/#executives"} >

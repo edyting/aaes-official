@@ -74,7 +74,7 @@ export default function EventsCarousel({items}) {
     <Carousel className="w-full h-full mx-aut ">
       <CarouselContent className="-ml-1">
         {items.map((item,) => (
-          <CarouselItem key={item.id} className="pl-1 basi md:basis-1/2 lg:basis-1/3  ">
+          <CarouselItem key={item.id} className="pl-1  md:basis-1/2 lg:basis-1/3  ">
             <div className="p-1 ">
               <div className="w-full rounded-xl shadow p-4">
             <div className="text-">
@@ -88,8 +88,8 @@ export default function EventsCarousel({items}) {
 
                {/* time & venue*/}
             <div className="flex justify-between pt-2 ">
-              <div className="">
-                Time:{item.time}
+              <div className="flex gap-1">
+                Time: <p className="text-[#0099ff] ">{item.time}</p>
               </div>
               <div className="">
                 Venue:{item.venue}

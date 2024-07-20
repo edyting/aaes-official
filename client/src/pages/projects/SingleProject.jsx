@@ -38,7 +38,7 @@ function SingleProject() {
             
             {/* descriptive text */}
             <div className="md:max-w-[32rem] h-auto p-auto   md:top-20 md:left-24 ">
-                  <h2 className='md:text-5xl text-2xl capitalize text-start my-2 text-white font-bold'>Top featured projects</h2>
+                  <h2 className='md:text-5xl text-2xl capitalize text-start my-2 text-white font-bold'>Top featured projects </h2>
                   {/* paragraph */}
                   <div className="">
                     <p className='text-start text-white my-8'>
@@ -47,7 +47,7 @@ function SingleProject() {
                   </div>
                   {/* button */}
                   <div className="text-start rounded-lg">
-                    <Link to='/projects/[12]/' className='bg-white text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
+                    <Link to='/projects/[12]/' className=' text-white font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
                   </div>
 
              </div>

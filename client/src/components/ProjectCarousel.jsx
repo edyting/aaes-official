@@ -56,60 +56,27 @@ console.log(winsize);
 let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
 
 
-
-export default function Carousel() {
-
+export default function ProjectCarousel() {
   return (
-    <div >
-        <Swiper
+    <div className='w-full h-full'>
+         <Swiper
   modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay]}
   spaceBetween={50}
   effect="fade"
   slidesPerView={1}
-  
   autoplay={{delay:5000}}
   pagination={{ clickable: true }}
- 
   // scrollbar={{ draggable: true }}
-  className='max-w-screen h-[40vh] md:h-[90vh] '
+  className='w-full h-full'
     >
-      
-
         {/* carousel container */}
-        <div className="w-full h-full">
+        <div className="w-full h-full md:rounded-2xl absolute">
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
-            <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] max-w-full h-full">
-            <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={image.image} alt="" />
-            {/* welcome text */}
-            <div className=" w-full h-full  text-white  flex text-center flex-col mx-auto ">
-            {/* content container */}
-            <div className="my-auto ">
-            <motion.h2 className='md:text-[3rem]  text-2xl capitalize font-poppins font-bold leading-relaxed '
-              
-              >{image.title}</motion.h2>
-             
-             <div className="  md:py-[1rem">
-             <p className=''>{image.text}</p>
-             </div>
 
-              <div className="pl-[2rem] my-8 ">
-                <motion.button className='capitalize bg-primary border border-white px-3 py-2 font rounded-[5px]'
-                animate={{y:0,opacity:1}}
-                initial={{y:200,opacity:0}}
-                transition={{ duration: 1.5,type: "spring", stiffness: 30 }}
-                >{image.btn}</motion.button>
-              </div>
-
+            <div className=" relative rounded-2xl bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
+            <img className='absolute mix-blend-overlay ease-linear rounded-2xl transition object-cover w-full h-full ' src={image.image} alt="" />
             </div>
-
-
-            </div>
-
-
-            </div>
-            
-            
           </SwiperSlide>
           ))}
 
