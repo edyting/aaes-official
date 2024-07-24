@@ -48,12 +48,8 @@ const images = [{
 },]
 
 
-//getting screen size
-let winsize = window.innerWidth;
-console.log(winsize); 
 
-// dynamic attribute
-let showNavigation = (winsize > 300)?" ":{navigation:'navigation'};
+
 
 
 export default function ProjectCarousel() {
@@ -74,7 +70,7 @@ export default function ProjectCarousel() {
           {images.map((image)=>(
             <SwiperSlide key={image.id}>
 
-            <div className=" relative rounded-2xl  w-full h-full">
+            <div className=" relative rounded-2xl  w-full h-full ">
             <img className='absolute mix-blend-overlay ease-linear  rounded-2xl transition object-cover w-full h-full ' src={image.image} alt="" />
             </div>
           </SwiperSlide>

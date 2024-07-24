@@ -8,10 +8,41 @@ import image7 from '../../assets/avatar11.jpg'
 import image8 from '../../assets/avatar6.jpg'
 import { HashLink } from 'react-router-hash-link'
 
+import React, { useEffect, useRef, useState } from 'react'
+
+import { delay, motion, spring, useAnimation, useInView } from 'framer-motion'
+
 const ExecutiveShow = () => {
     let cards=[{image:image1,title:'Shoo Phar Dhie',id:1,text:'CEO'},
     {image:image2,title:'Shoo Phar Dhie',text:'CEO',id:2},
     {image:image3,title:'Shoo Phar Dhie',text:'CEO',id:3},]
+
+    
+  const cardVariant = {
+    hidden:{
+      Scale:0,opacity:0.8,y:200
+    },
+    show:{
+      scale:1,opacity:1,y:0,
+      
+    }
+  }
+
+
+   // setting up the image reveal animation
+   const mainControls = useAnimation();
+
+   const cardContainer = useRef(null);
+   const isInView = useInView(cardContainer,{once:true} )
+
+
+   useEffect(()=>{
+     if(isInView){
+      mainControls.start("show");
+     }
+     
+   },[isInView])
+
 
     return ( 
         
@@ -25,9 +56,20 @@ const ExecutiveShow = () => {
         </div>
 
             {/* cards container */}
-            <div className="md:w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-1   md:gap-x-4 gap-4  md:p-4 grid-cols-1 grid-rows-2 ">
-                {cards.map((card)=>(
-                <div className="w-[90%] mx-auto border shadow-lg border-[#0099ff] h-auto mb-2 rounded-xl ">
+            <motion.div className="md:w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-1   md:gap-x-4 gap-4  md:p-4 grid-cols-1 grid-rows-2 "
+             
+            >
+                {cards.map((card,i)=>(
+                <motion.div className="w-[90%] mx-auto border shadow-lg border-[#0099ff] h-auto mb-2 rounded-xl "
+                variants={cardVariant}
+                initial="hidden"
+                animate={mainControls}
+                ref={cardContainer}
+                transition={{
+                    duration:2,ease:"easeIn",type: "spring",mass:0.4,damping:7,
+                    delay:i*0.1
+                  }}
+                >
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
@@ -40,9 +82,9 @@ const ExecutiveShow = () => {
                         <p className='font-poppins text-[#0099ff]'>{card.text}</p>
                     </div>
                     </div>
-                </div>
+                </motion.div>
                 ))}
-            </div>
+            </motion.div>
           
         </div>
           {/* button */}

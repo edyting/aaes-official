@@ -15,7 +15,7 @@ function Second() {
       show:{
         scale:1,opacity:1,
         transition:{
-          duration:2,ease:"easeIn",type: "spring", stiffness: 30
+          duration:1.5,ease:"easeIn",type: "spring", stiffness: 30
         }
       }
     }
@@ -34,7 +34,7 @@ function Second() {
       },
       show:{
         scale:1,opacity:1,
-        transition:{ duration: 2.5,type: "spring", stiffness: 30,delay:.7 }
+        transition:{ duration: 2,type: "spring", stiffness: 30,delay:.5 }
       }
     }
 
@@ -118,15 +118,15 @@ function Second() {
           >
 
              <div className="md:w-[70%] md:mx-auto">
-               <motion.h2 className='capitalize overflow-hidden h-auto font-poppins text-right md:text-5xl text-3xl ml-auto  font-bold text-[#0099ff]'
+               <motion.h2 className='capitalize overflow-hidden h-auto font-poppins text-left md:text-5xl text-3xl ml-auto  font-bold text-[#0099ff]'
 
               >Get to  know <br/> more about us</motion.h2>
-            <motion.p className='font-roboto  md:text-lg text-right' 
+            <motion.p className='font-roboto  md:text-lg text-left' 
           
             >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, quae quod voluptate tenetur earum rem saepe consequuntur quasi unde, quia veritatis expedita sed, numquam accusantium aperiam! Eaque fugiat excepturi nostrum.</motion.p>
             {/* button */}
 
-            <motion.button className=' font-roboto md:text-[#0099ff] border border-[#0099ff] bg-[#0099ff] text-end text-white md:bg-white rounded-xl mt-2 px-3 py-2 block ml-auto  text-lg'
+            <motion.button className=' font-roboto md:text-[#0099ff] border border-[#0099ff] bg-[#0099ff] text-left text-white md:bg-white rounded-xl mt-2 px-3 py-2 block mr-auto  text-lg'
               initial={{scale:0.5,opacity:0,}}
               animate={{scale:1,opacity:1}}
               transition={{ease:"easeIn",duration:1, type:"spring", stiffness:10}}

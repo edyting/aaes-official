@@ -9,6 +9,9 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel"
+
+
+import { motion } from 'framer-motion'
   
 
 
@@ -22,59 +25,16 @@ import {
 
 export default function EventsCarousel({items}) {
 
-    // const items = [
-    //     {
-    //       title: "Q & A with the President",
-    //       description: "Description for Item 1",
-    //       date:"Feb 09,2024",
-    //       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-    //       time:"15:00-19:00",
-    //       venue:"online",
-    //       img:image1,
-    //       button:"RSVP",
-    //       id:1
-    //     },
-    //     {
-    //       title: "Q & A with the President",
-    //       description: "Description for Item 1",
-    //       date:"Feb 09,2024",
-    //       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-    //       time:"15:00-19:00",
-    //       venue:"online",
-    //       img:image2,
-    //       button:"RSVP",
-    //       id:2
-    //     },
-    //     {
-    //       title: "Q & A with the President",
-    //       description: "Description for Item 1",
-    //       date:"Feb 09,2024",
-    //       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-    //       time:"15:00-19:00",
-    //       venue:"online",
-    //       img:image3,
-    //       button:"RSVP",
-    //       id:3
-    //     },
-    //     {
-    //       title: "Q & A with the President",
-    //       description: "Description for Item 1",
-    //       date:"Feb 09,2024",
-    //       intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-    //       time:"15:00-19:00",
-    //       venue:"online",
-    //       img:image3,
-    //       button:"RSVP",
-    //       id:3
-    //     }
-    //   ];
+  motion
 
   return (
     <div className='md:w-[90vw] block w-full relative md:mx-auto '>
-    <Carousel className="w-full h-full mx-aut ">
+    <Carousel className="w-full h-full py-3 mx-aut ">
       <CarouselContent className="-ml-1">
+
+
         {items.map((item,) => (
-          <CarouselItem key={item.id} className="pl-1  md:basis-1/2 lg:basis-1/3  ">
+          <CarouselItem key={item.id} className="pl-1 hover:scale-[1.02]  md:basis-1/2 lg:basis-1/3  ">
             <div className="p-1 ">
               <div className="w-full rounded-xl shadow p-4">
             <div className="text-">
@@ -99,6 +59,7 @@ export default function EventsCarousel({items}) {
             </div>
           </CarouselItem>
         ))}
+        
       </CarouselContent>
       {/* navigation */}
       <div className="flex  top-[24rem]  right-16 justify-between  gap-10 w-[20%]  absolute md:relative">
