@@ -16,10 +16,10 @@ export default function Mission() {
            
   const cardVariant = {
     hidden:{
-      Scale:0,opacity:0.8,y:200
+      Scale:0,opacity:0.8,x:200
     },
     show:{
-      scale:1,opacity:1,y:0,
+      scale:1,opacity:1,x:0,
       
     }
   }

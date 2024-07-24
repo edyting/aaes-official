@@ -44,7 +44,7 @@ export default function Gallery() {
                 {cards.map((card) => (
                     <div key={card.id} className=" ">
                     {/* card */}
-                        <div className="md:w-[95%] relative  rounded-xl shadow p-4 ">
+                        <div className="md:w-[95%] relative hover:scale-[1.02]   rounded-xl shadow p-4 ">
                     {/* inner */}
                     <div className=""> 
                     {/* image */}
