@@ -38,8 +38,8 @@ export default function Layout() {
       // using regular expression
   // Check if current path matches any of the hideNavbarPaths or /dash/:id/edit
       // Check if current path matches any of the hideNavbarPaths or starts with /dash or /projects/:id
-      const matchHideNavbarPaths = hideNavbarPaths.includes(location.pathname) || 
-      /^\/dash.*/.test(location.pathname) || 
+      const matchHideNavbarPaths = hideNavbarPaths.includes(location.pathname) ||
+      /^\/dash.*/.test(location.pathname) ||
       /^\/projects\/[^/]+$/.test(location.pathname);
 
     setShowNavbar(!matchHideNavbarPaths);
@@ -58,7 +58,7 @@ export default function Layout() {
     </div>
     {/* <Footer/> */}
     <div className="">
-    {showNavbar && <NewFooter/> }       
+    {showNavbar && <NewFooter/> }
     </div>
    </div>
   )

@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@radix-ui/react-slot": "^1.1.0",
+=======
+    "@radix-ui/react-slot": "^1.0.2",
+    "axios": "^1.7.2",
+>>>>>>> 3f5ce241a87ee1f9d4fea2c54867d17631eeae90
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.5",

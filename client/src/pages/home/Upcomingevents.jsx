@@ -1,98 +1,59 @@
-
+import React, { useEffect, useState } from "react";
+import { HashLink } from "react-router-hash-link";
+import { getEvents } from "@/api/api";
 import EventsCarousel from "@/components/EventsCarousel";
-import image1 from "../../components/images/image1.jpg";
-import image2 from "../../components/images/image2.jpg";
-import image3 from "../../components/images/image3.jpg";
-
-
-import React, { useState } from "react";
-import { CiCircleChevLeft } from "react-icons/ci";
-import { CiCircleChevRight } from "react-icons/ci";
+import imagePlaceholder from "../../assets/avatar1.jpg"; // Placeholder image for events without a cover image
 
 function Upcoming() {
+  const [events, setEvents] = useState([]); // State to store fetched events
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for error handling
 
-  const items = [
-    {
-      title: "Q & A with the President",
-      description: "Description for Item 1",
-      date:"Feb 09,2024",
-      intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"Upcoming",
-      venue:"online",
-      img:image1,
-      button:"RSVP",
-      id:1
-    },
-    {
-      title: "Q & A with the President",
-      description: "Description for Item 1",
-      date:"Feb 09,2024",
-      intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"past",
-      venue:"online",
-      img:image2,
-      button:"RSVP",
-      id:2
-    },
-    {
-      title: "Q & A with the President",
-      description: "Description for Item 1",
-      date:"Feb 09,2024",
-      intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"past",
-      venue:"online",
-      img:image3,
-      button:"RSVP",
-      id:3
-    },
-    {
-      title: "Q & A with the President",
-      description: "Description for Item 1",
-      date:"Feb 09,2024",
-      intro:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, obcaecati accusantium at id a voluptates deleniti temporibus magni aliquid illo tempora, ratione placeat, error dolore?",
-      time:"Past",
-      venue:"online",
-      img:image3,
-      button:"RSVP",
-      id:3
-    }
-  ];
+  // Fetch events from the server
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const response = await getEvents();
+        setEvents(response); // Set events from API response
+        setLoading(false);
+      } catch (err) {
+        console.error('Failed to fetch events:', err);
+        setError('Failed to load events');
+        setLoading(false);
+      }
+    };
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+    loadEvents();
+  }, []);
 
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  if (loading) return <p className="text-center py-5">Loading...</p>;
+  if (error) return <p className="text-center py-5">{error}</p>;
 
-  const goToPrevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-  
   return (
-    <div className=' w-full pl-2'>
-    {/* cards container */}
-    {/* view name  */}
-    <div className="">
-      {/* <h1 className='text-2xl text-[#0099ff]  font-bold'>UPCOMING EVENTS</h1> */}
-    </div>
-    <div className="relative">
-
-
-     <div className="relative md:w-full md:overflow-hidden">
-      <div className="flex justify-between items-center w-full  md:h-full">
-      <EventsCarousel items={items} />
-       
+    <div className='w-full pl-2'>
+      {/* cards container */}
+      {/* view name */}
+      <div className="">
+        {/* <h1 className='text-2xl text-[#0099ff]  font-bold'>UPCOMING EVENTS</h1> */}
       </div>
-
-     
+      <div className="relative">
+        <div className="relative md:w-full md:overflow-hidden">
+          <div className="flex justify-between items-center w-full md:h-full">
+            <EventsCarousel items={events.map(event => ({
+              title: event.title,
+              description: event.description || 'No description available',
+              date: event.date || 'No date specified',
+              intro: event.intro || 'No introduction available',
+              time: event.time || 'No time specified',
+              venue: event.venue || 'No venue specified',
+              img: event.cover || imagePlaceholder,
+              button: 'RSVP',
+              id: event._id
+            }))} />
+          </div>
+        </div>
+      </div>
     </div>
-
-    </div>
-   </div>
   )
 }
 

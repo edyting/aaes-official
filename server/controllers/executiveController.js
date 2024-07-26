@@ -9,20 +9,28 @@ const handleError = (res, error) => {
 // Create Executive
 export const createExecutive = async (req, res) => {
     try {
-        const { name, position, bio, contanct } = req.body;
+        const { fullName, position, academicYear, programme } = req.body;
+        const photo = req.file; // Assuming photo is handled as file upload
 
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
         }
 
         // Validate input
-        if (!name || !position ) {
-            return res.status(400).json({ message: 'Name, position are required' });
+        if (!fullName || !position || !academicYear || !programme) {
+            return res.status(400).json({ message: 'All fields are required' });
         }
 
-        const Executive = new Executive({ name, position, bio, contanct });
-        await Executive.save();
-        res.status(201).json(Executive);
+        const newExecutive = new Executive({
+            fullName,
+            position,
+            academicYear,
+            programme,
+            photo: photo ? photo.path : null // Adjust according to file handling logic
+        });
+
+        await newExecutive.save();
+        res.status(201).json(newExecutive);
     } catch (error) {
         handleError(res, error);
     }
@@ -34,8 +42,9 @@ export const getAllExecutives = async (req, res) => {
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
         }
-        const Executives = await Executive.find();
-        res.status(200).json(Executives);
+
+        const executives = await Executive.find();
+        res.status(200).json(executives);
     } catch (error) {
         handleError(res, error);
     }
@@ -51,15 +60,15 @@ export const getExecutiveById = async (req, res) => {
         }
 
         // Validate ID format
-        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
-        // }
+        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: 'Invalid Executive ID format' });
+        }
 
-        const Executive = await Executive.findById(id);
-        if (!Executive) {
+        const executive = await Executive.findById(id);
+        if (!executive) {
             return res.status(404).json({ message: 'Executive not found' });
         }
-        res.status(200).json(Executive);
+        res.status(200).json(executive);
     } catch (error) {
         handleError(res, error);
     }
@@ -76,20 +85,15 @@ export const updateExecutive = async (req, res) => {
         }
 
         // Validate ID format
-        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
-        // }
-
-        // Validate input
-        if (!updates.name || !updates.date || !updates.location) {
-            return res.status(400).json({ message: 'Name, date, and location are required' });
+        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: 'Invalid Executive ID format' });
         }
 
-        const Executive = await Executive.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
-        if (!Executive) {
+        const updatedExecutive = await Executive.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
+        if (!updatedExecutive) {
             return res.status(404).json({ message: 'Executive not found' });
         }
-        res.status(200).json(Executive);
+        res.status(200).json(updatedExecutive);
     } catch (error) {
         handleError(res, error);
     }
@@ -104,13 +108,13 @@ export const deleteExecutive = async (req, res) => {
             return res.status(401).json({ message: 'User not authenticated' });
         }
 
-        // // Validate ID format
-        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
-        // }
+        // Validate ID format
+        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: 'Invalid Executive ID format' });
+        }
 
-        const Executive = await Executive.findByIdAndDelete(id);
-        if (!Executive) {
+        const deletedExecutive = await Executive.findByIdAndDelete(id);
+        if (!deletedExecutive) {
             return res.status(404).json({ message: 'Executive not found' });
         }
         res.status(200).json({ message: 'Executive deleted successfully' });

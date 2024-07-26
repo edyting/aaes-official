@@ -1,113 +1,113 @@
-import {React,useState} from 'react'
-
-// images
-
-import cover1 from "../../components/images/image1.jpg"
-import cover2 from "../../components/images/image2.jpg"
-import cover3 from "../../components/images/image3.jpg"
-import { Link } from 'react-router-dom'
-
-// icons
-import { MdEditNote } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
-
-import Sidebar from './components/Sidebar'
-
-
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Sidebar from './components/Sidebar'; // Import the Sidebar component
+import { MdEditNote, MdDelete } from 'react-icons/md';
+import { getExecutives } from '@/api/api'; // Adjust the import to your API module
 
 export default function ExecutivesDashboard() {
+  const [open, setOpen] = useState(true); // State for sidebar toggle
+  const [executives, setExecutives] = useState([]); // State to store fetched events
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for error handling
 
-  const [open, setOpen] = useState(true);
+  // Fetch events from the server
+  useEffect(() => {
+    const loadExecutives = async () => {
+      try {
+        const response = await getExecutives();
+        setExecutives(response); // Set events from API response
+        setLoading(false);
+      } catch (err) {
+        console.error('Failed to fetch events:', err);
+        setError('Failed to load events');
+        setLoading(false);
+      }
+    };
 
-  const projectData =[
-    {
-      "title":   "ai in engineering",
-      "article":  "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam facere tempore temporibus enim sint maiores tempora labore unde delectus recusandae, architecto, explicabo, beatae laboriosam deserunt! Deserunt eligendi illo totam iste iure omnis corrupti maiores consequuntur, atque nemo ad libero, quisquam voluptas accusamus qui. Quasi minima dignissimos repellat atque dolore unde?",
-      "coverPhoto" : cover1,
-      "postDate":"Posted At 3:00",
-      "id":1
-    },
-    {
-      "title":   "ai in engineering",
-      "article":  "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam facere tempore temporibus enim sint maiores tempora labore unde delectus recusandae, architecto, explicabo, beatae laboriosam deserunt! Deserunt eligendi illo totam iste iure omnis corrupti maiores consequuntur, atque nemo ad libero, quisquam voluptas accusamus qui. Quasi minima dignissimos repellat atque dolore unde?",
-      "coverPhoto" : cover2,
-      "postDate":"Posted At 3:00",
-      "id":2
-    },
-    {
-      "title":   "ai in engineering",
-      "article":  "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam facere tempore temporibus enim sint maiores tempora labore unde delectus recusandae, architecto, explicabo, beatae laboriosam deserunt! Deserunt eligendi illo totam iste iure omnis corrupti maiores consequuntur, atque nemo ad libero, quisquam voluptas accusamus qui. Quasi minima dignissimos repellat atque dolore unde?",
-      "coverPhoto" : cover3,
-      "postDate":"Posted At 3:00",
-      "id":3
-    }
+    loadExecutives();
+  }, []);
 
-  ]
-
+  if (loading) return <p className="text-center py-5">Loading...</p>;
+  if (error) return <p className="text-center py-5">{error}</p>;
 
   return (
-    <div className="flex bg-slate-200">
-      <Sidebar open={open} setOpen={setOpen}/>
-      {/* layout */}
-      <div className="flex-grow p-7">
-        <div className="w-full">
-          {/* dashboard title */}
-          <div className="w-[90%] mx-auto py-5 flex justify-between items-center">
-            <h2 className='text-5xl font-bold text-[#0099ff]  '>Executives Dashboard</h2>
-            <Link to={`/dash`}>Back to Dashboard</Link>
+    <div className="flex bg-slate-200 min-h-screen">
+      <Sidebar open={open} setOpen={setOpen} /> {/* Use the Sidebar component */}
+      <div className="flex-grow p-4 md:p-7">
+        {/* Layout */}
+        <div className="w-full max-w-screen-lg mx-auto">
+          {/* Dashboard title */}
+          <div className="py-5 flex flex-col md:flex-row justify-between items-center">
+            <h2 className='text-3xl md:text-5xl font-bold text-[#0099ff]'>Executive Dashboard</h2>
+            <Link to={`/dash`} className='text-blue-500 hover:underline'>Back to Dashboard</Link>
           </div>
-          {/* create */}
-          <div className="w-[90%] mx-auto py-1 flex justify-end">
-                <button className='bg-[#0099ff] text-white px-3 py-1 rounded-[5px] font-bold' >
-                  <Link to={'/dash/addexecutives'}> Add Executives</Link>
-                </button>
+          {/* Create */}
+          <div className="py-1 flex justify-end">
+            <button className='bg-[#0099ff] text-white px-4 py-2 rounded-md font-bold'>
+              <Link to={'/dash/addexecutives'}> Add Executives</Link>
+            </button>
           </div>
-              {/* container */}
-              <div className="w-[90%] p-4 m-auto ">
-                {/* grid */}
-                <div className=" grid grid-cols-1 gap-4">
-                  {projectData.map((project)=>(
-                    <div className="flex rounded-xl  shadow-lg bg-white" key={project.id}>
-                    {/* image container */}
-                    {/* <div className="w-2/12">
-                    <img src={`${project.coverPhoto}`} className=' rounded-xl' alt="" />
-                    </div> */}
-                    {/* text container */}
-                    <div className="w-8/12 flex gap-10 items-center  pl-8">
-                        {/* title */}
-                        <div className="">
-                          <h2 className='text-xl capitalize '>Name:{project.title}</h2>
-                        </div>
-                        {/* details */}
-                        <div className="">
-                          <p>Position:{project.article.split('').slice(0,10)} ...</p>
-                        </div>
-                        {/* program */}
-                        <div className="">
-                          <p>Program:{project.article.split('').slice(0,10)} ...</p>
-                        </div>
+          {/* Container */}
+          <div className="p-4">
+            {/* Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
+              {executives.length > 0 ? (
+                executives.map((executive) => (
+                  <div className="flex flex-col sm:flex-row rounded-lg shadow-lg bg-white" key={executive._id}>
+                    {/* Image container */}
+                    <div className="w-full sm:w-1/3">
+                      <img
+                        src={executive.coverPhoto ? `/path/to/images/${executive.photo}` : '/path/to/default/image.jpg'}
+                        className='w-full h-48 object-cover rounded-t-lg sm:rounded-t-none sm:rounded-l-lg'
+                        alt={executive.fullName || 'Executive cover'}
+                      />
                     </div>
+                    {/* Text container */}
+                    <div className="w-full sm:w-2/3 p-4">
+                      {/* Title */}
+                      <div>
+                        <h2 className='text-lg md:text-xl font-semibold capitalize'>{executive.fullName || 'No Title'}</h2>
+                      </div>
+                      {/* Description */}
+                      <div className="mt-2">
+                        <p className='text-sm md:text-base'>{executive.position ? `${executive.position.slice(0, 50)}...` : 'No Description'}</p>
+                      </div>
+                      {/* Post Date */}
+                      <div>
+                        <h2 className='text-lg md:text-xl font-semibold capitalize'>{executive.academicYear || 'No Year'}</h2>
+                      </div>
 
-                    {/* crud buttons */}
-                    <div className="w-2/12 flex items-center justify-between p-4">
-                        {/* edit */}
-                        <div >
-                        <Link to={`/dash/${project.id}/edit`} className="flex text-green-400 items-center gap-2">
+                      <div>
+                        <h2 className='text-lg md:text-xl font-semibold capitalize'>{executive.programme || 'No programme'}</h2>
+                      </div>
+                      {/* <div className="mt-2">
+                        <p className='text-sm md:text-base'>Date: {executive.time ? new Date(executive.time).toLocaleDateString() : 'Unknown Date'}</p>
+                      </div> */}
+                    </div>
+                    {/* CRUD buttons */}
+                    <div className="flex flex-wrap items-center justify-between p-4 border-t border-gray-200 rounded-b-lg">
+                      {/* Edit */}
+                      <div>
+                        <Link to={`/dash/${executive._id}/edit`} className="flex text-green-400 items-center gap-2">
                           <p>Edit</p>
-                        <MdEditNote className='text-xl'/></Link>
-                        </div>
-                        {/* delete */}
-                        <div className=" flex text-red-400 items-center gap-2">
-                          <p>Delete</p>
-                          <MdDelete className='text-xl' />
-                        </div>
+                          <MdEditNote className='text-lg' />
+                        </Link>
+                      </div>
+                      {/* Delete */}
+                      <div className="flex text-red-400 items-center gap-2">
+                        <p>Delete</p>
+                        <MdDelete className='text-lg' />
+                      </div>
                     </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center py-5">No executive available.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
