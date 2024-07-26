@@ -54,11 +54,5 @@ export const logoutUser = (req, res) => {
     });
 };
 
-// Middleware to check if user is authenticated
-export const isAuthenticated = (req, res, next) => {
-    if (req.session.userId) {
-        next();
-    } else {
-        res.status(401).json({ message: 'Unauthorized' });
-    }
-};
+
+

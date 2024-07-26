@@ -19,7 +19,7 @@ export const createprojects = async (req, res) => {
         }
 
         // Validate input
-        if (!title || !content) {
+        if (!title || !article) {
             return res.status(400).json({ message: 'Title and content are required' });
         }
 
@@ -40,7 +40,7 @@ export const createprojects = async (req, res) => {
 // Get All projectss
 export const getAllprojectss = async (req, res) => {
     try {
-        const projectss = await projects.find().populate('author', 'username');
+        const projectss = await projects.find()
         res.status(200).json(projectss);
     } catch (error) {
         handleError(res, error);

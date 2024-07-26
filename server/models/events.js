@@ -19,7 +19,7 @@ const EventSchema = new Schema({
   },
   coverPhoto: {
     type: String,
-    required: true
+    // required: true
   },
   createdAt: {
     type: Date,

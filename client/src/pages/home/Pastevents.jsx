@@ -1,7 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { getEvents } from '@/api/api';
 
 function Pastevents() {
+  const [events,setEvents] =useState('')
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const response = await getEvents();
+        setEvents(response); // Set events from API response
+        // setLoading(false);
+      } catch (err) {
+        console.error('Failed to fetch events:', err);
+        setError('Failed to load events');
+        // setLoading(false);
+      }
+    };
+
+    loadEvents();
+  }, []);
   return (
     <div className='h-full w-full'>
        <div className="">

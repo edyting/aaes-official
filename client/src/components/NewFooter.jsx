@@ -1,82 +1,62 @@
-import React from 'react'
+import React from 'react';
 
-
-// icons
-import { FaLinkedin } from "react-icons/fa6";
+// Icons
+import { FaLinkedin, FaTwitter, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
+import { IoLocationSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaInstagramSquare } from "react-icons/fa";
-import { IoLocation } from "react-icons/io5";
-import { FaPhoneSquareAlt } from "react-icons/fa";
-
-
-
-
 
 export default function NewFooter() {
   return (
-    <div>
-        {/* main footer container */}
-        <div className="max-w-[95vw] md:mb-3 rounded-xl border-2 flex md:flex-row flex-col justify-between border-slate-50 mx-auto  bg-[#0099ff]">
-           
-            {/* top */}
-            <div className="md:w-[30%] w-[90%]  mx-auto ">
-                <div className=" w-full flex items-center md:justify-center md:py-5 md:mx-auto bg-green ">
-                    <ul className=' py-2 '>
-                        <li className='font-bold text-2xl text-white py-2'>logo</li>
-                        <li> <Link className='px-2 py-1 text-white rounded-[10px]'>Home</Link> </li>
-                        <li> <Link className='px-2 py-1 text-white rounded-[10px]'>About</Link> </li>
-                        <li> <Link className='px-2 py-1 text-white rounded-[10px]'>Project</Link> </li>
-                        <li> <Link className='px-2 py-1 text-white rounded-[10px]' to={'contact'}>Contact Us</Link> </li>
-                    </ul>
-                </div>
-            </div>
-            
-            {/* middle */}
-            <div className="md:w-[60%] mx-auto ">
-                <div className=" mx-auto  md:py-6   md:flex flex-col  justify-between ">
-                    {/* msg */}
-                    <div className="">
-                    <h1 className='text-2xl text-white  capitalize py-2 font-bold'>suscribe</h1>
-                    <p className='capitalize text-sm font-poppins md:pb-2'>join our mailing list and get our news </p>
-                    </div>
-                    {/* input */}
-                    <div className="">
-                    <form action="" className='flex gap-2'>
-                    <input type="text" placeholder='your email address' name="" id="" className='rounded-xl  px-6 w-full py-2' />
-                    <input type="submit" className='text-white px-4 bg-slate-400 rounded-xl' value="Suscribe" />
-                    </form>
-                    </div>
+    <footer className="bg-[#0099ff] text-white py-10">
+      <div className="container mx-auto px-5 flex flex-col md:flex-row justify-between items-center">
 
-                           {/*initially buttom */}
-            <div className="w-full  md:py-4 py-2">
-                <div className=" md:flex grid grid-cols-1 grid-rows-2 gap-y-8 justify-between mx-auto">
-                    
-                    {/* top-icons */}
-                    <div className="row-start-1 py- md:py-0">
-                    <ul className='grid-cols-5 md:gap-5 grid '>
-                        <li> <Link className='text-white text-[2rem]'> <FaLinkedin /> </Link> </li>
-                        <li>  <Link className='text-white text-[2rem]'> <FaSquareXTwitter />
-                        </Link> </li>
-                        <li>   <Link className='text-white text-[2rem]'> <FaInstagramSquare />
-                        </Link></li>
-                        <li> <Link className='text-white text-[2rem]'> <FaPhoneSquareAlt />
-                        </Link></li>
-                        <li> <Link className='text-white text-[2rem]'> <IoLocation />  </Link></li>
-                    </ul>
-                    {/* bottom */}
-                    <div className="font-lobster">
-                        @copyright 2024 Lorem ipsum dolor sit  <Link to={'/login'}>amet.</Link>
-                    </div>
-                    </div>
-            </div>
-            </div>
-                </div>
-            </div>
-         
-          
-     
+        {/* Logo and Navigation */}
+        <div className="mb-8 md:mb-0 md:w-1/3">
+          <h1 className="text-2xl font-bold mb-4">Logo</h1>
+          <nav>
+            <ul className="space-y-2">
+              <li><Link to="/" className="hover:underline">Home</Link></li>
+              <li><Link to="/about" className="hover:underline">About</Link></li>
+              <li><Link to="/projects" className="hover:underline">Projects</Link></li>
+              <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
+            </ul>
+          </nav>
         </div>
-    </div>
-  )
+
+        {/* Subscription */}
+        <div className="mb-8 md:mb-0 md:w-1/3 text-center">
+          <h2 className="text-2xl font-bold mb-4">Subscribe</h2>
+          <p className="mb-4">Join our mailing list and get our news</p>
+          <form className="flex justify-center items-center">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="px-4 py-2 rounded-l-md focus:outline-none text-black"
+            />
+            <button
+              type="submit"
+              className="bg-gray-700 px-4 py-2 rounded-r-md hover:bg-gray-600"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="md:w-1/3 text-center md:text-right">
+          <div className="flex justify-center md:justify-end space-x-4 mb-4">
+            <Link to="#" className="text-2xl hover:text-gray-200"><FaLinkedin /></Link>
+            <Link to="#" className="text-2xl hover:text-gray-200"><FaTwitter /></Link>
+            <Link to="#" className="text-2xl hover:text-gray-200"><FaInstagram /></Link>
+            <Link to="#" className="text-2xl hover:text-gray-200"><FaPhoneAlt /></Link>
+            <Link to="#" className="text-2xl hover:text-gray-200"><IoLocationSharp /></Link>
+          </div>
+          <p>&copy; 2024 Your Company. All rights reserved.</p>
+          <p>
+            <Link to="/dash" className="hover:underline">Admin Dashboard</Link>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
