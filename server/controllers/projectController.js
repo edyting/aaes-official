@@ -9,7 +9,9 @@ const handleError = (res, error) => {
 // Create projects
 export const createprojects = async (req, res) => {
     try {
-        const { title, content } = req.body;
+        const { title, article } = req.body;
+
+        const coverImg = req.file
 
         // Check if user is logged in
         if (!req.session.userId) {
@@ -17,18 +19,19 @@ export const createprojects = async (req, res) => {
         }
 
         // Validate input
-        if (!title || !content) {
+        if (!title || !article) {
             return res.status(400).json({ message: 'Title and content are required' });
         }
 
-        const projects = new projects({
+        const project = new projects({
             title,
-            content,
+            article,
+            image:coverImg ? coverImg.path : null,
             author: req.session.userId // Set the author as the current logged-in user
         });
 
-        await projects.save();
-        res.status(201).json(projects);
+        await project.save();
+        res.status(201).json(project);
     } catch (error) {
         handleError(res, error);
     }
@@ -37,7 +40,7 @@ export const createprojects = async (req, res) => {
 // Get All projectss
 export const getAllprojectss = async (req, res) => {
     try {
-        const projectss = await projects.find().populate('author', 'username');
+        const projectss = await projects.find()
         res.status(200).json(projectss);
     } catch (error) {
         handleError(res, error);

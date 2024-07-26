@@ -3,8 +3,21 @@ import { GrProjects, GrGallery } from "react-icons/gr";
 import { IoPerson, IoMenuSharp } from "react-icons/io5";
 import { MdOutlineEventAvailable, MdLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { logout } from "@/api/api";
 
 const Sidebar = ({ open, setOpen }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/login'); // Redirect to login page after successful logout
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   const Menus = [
     { title: "Project", icon: <GrProjects />, link: "/dash/projects" },
     { title: "Gallery", icon: <GrGallery />, link: "/dash/gallery" },
@@ -34,7 +47,7 @@ const Sidebar = ({ open, setOpen }) => {
         ))}
       </ul>
       <div className="mt-auto pt-6">
-        <button className="flex items-center gap-x-4 p-2 cursor-pointer rounded-md text-gray-300 hover:bg-red-600 hover:text-white duration-200 w-full">
+        <button className="flex items-center gap-x-4 p-2 cursor-pointer rounded-md text-gray-300 hover:bg-red-600 hover:text-white duration-200 w-full" onClick={handleLogout}>
           <MdLogout className="text-2xl text-white" />
           <span className={`${!open && "hidden"} origin-left duration-200`}>Logout</span>
         </button>
