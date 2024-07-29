@@ -23,11 +23,11 @@ export default function Executive() {
   return (
     <div>
       {/* display of executives  */}
-      <div className="">
+      <div className="w-[95%] mx-auto">
         <h2 className="text-3xl md:ml-12 text-[#0099ff]">Current Executives</h2>
       </div>
       {/* cards container */}
-      <div className="c-container md:w-[90%] md:mx-auto grid md:grid-cols-4 md:grid-rows-2  row-span-1 gap-x-4 gap-4 col-span-auto md:p-4 grid-cols-2">
+      <div className="c-container mx-auto mt-4 w-[90%]  md:mx-auto grid md:grid-cols-3 md:grid-rows-  row-span-1 gap-x-4 gap-4 col-span-auto md:p-4 grid-cols-1 mb-6">
                 {cards.map((card)=>(
                 <div className="w-[100%] relative  hover:scale-[1.02]  rounded-xl shadow p-4 ">
                     {/* inner */}

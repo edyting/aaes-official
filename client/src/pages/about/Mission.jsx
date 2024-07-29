@@ -51,7 +51,7 @@ export default function Mission() {
         
         >
             {/* mission */}
-            <div className=" flex justify-between gap-[3%]">
+            <div className=" flex md:flex-row flex-col space-y-5 justify-between gap-[3%]">
                 {data.map((data,i)=>(
                    <motion.div className="h-full outline  rounded-xl p-2 outline-[#0099ff]  outline-2 md:w-2/4" key={data.id}
                    variants={cardVariant}
