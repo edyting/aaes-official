@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function NewFooter() {
   return (
-    <footer className="bg-[#0099ff] text-white py-10">
+    <footer className="bg-[#0099ff] md:w-[95%] md:mx-auto md:my-4 rounded-xl text-white py-10">
       <div className="container mx-auto px-5 flex flex-col md:flex-row justify-between items-center">
 
         {/* Logo and Navigation */}
@@ -31,11 +31,11 @@ export default function NewFooter() {
             <input
               type="email"
               placeholder="Your email address"
-              className="px-4 py-2 rounded-l-md focus:outline-none text-black"
+              className="px-4 py-2 rounded-l-xl  focus:outline-none text-black"
             />
             <button
               type="submit"
-              className="bg-gray-700 px-4 py-2 rounded-r-md hover:bg-gray-600"
+              className="bg-gray-700 px-4 py-2 rounded-r-xl hover:bg-gray-600"
             >
               Subscribe
             </button>

@@ -37,7 +37,7 @@ function Upcoming() {
         {/* <h1 className='text-2xl text-[#0099ff]  font-bold'>UPCOMING EVENTS</h1> */}
       </div>
       <div className="relative">
-        <div className="relative md:w-full md:overflow-hidden">
+        <div className="relative  md:w-full md:overflow-hidden">
           <div className="flex justify-between items-center w-full md:h-full">
             <EventsCarousel items={events.map(event => ({
               title: event.title,

@@ -30,11 +30,11 @@ export default function EventsCarousel({items}) {
   return (
     <div className='md:w-[90vw] block w-full relative md:mx-auto '>
     <Carousel className="w-full h-full py-3 mx-aut ">
-      <CarouselContent className="-ml-1">
+      <CarouselContent className="-ml-1 ">
 
 
         {items.map((item,) => (
-          <CarouselItem key={item.id} className="pl-1 hover:scale-[1.02]  md:basis-1/2 lg:basis-1/3  ">
+          <CarouselItem key={item.id} className="pl-1  hover:scale-[1.02]  md:basis-1/2 lg:basis-1/3  ">
             <div className="p-1 ">
               <div className="w-full rounded-xl shadow p-4">
             <div className="text-">

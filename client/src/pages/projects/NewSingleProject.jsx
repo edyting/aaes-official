@@ -93,8 +93,8 @@ function NewSingleProject() {
                     <div className='text-start w-[95%] font-roboto mx-auto my-2 text-white md:my-8'>
                        <p className='my-2'>  {project.desc} </p>
 
-                        <div className="text-start   rounded-lg">
-                    <Link to='/projects/[12]/' className='bg-white  md:inline-flex text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
+                        <div className="md:text-start  text-center  rounded-lg">
+                    <Link to='/projects/[12]/' className='bg-white md:inline-flex text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
                   </div>
                     </div>
                     
@@ -119,9 +119,9 @@ function NewSingleProject() {
                     </motion.div>
                 </div>
                 {/* button */}
-                <div className="text-center  rounded-lg pt-4 ">
+                {/* <div className="text-center  rounded-lg pt-4 ">
                     <Link to='/projects/[12]/' className='bg-white md:hidden  flex text-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>Read more</Link>
-                </div>
+                </div> */}
             </div>
 
                 </div>

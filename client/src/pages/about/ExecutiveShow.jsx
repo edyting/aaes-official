@@ -67,7 +67,7 @@ const ExecutiveShow = () => {
       {/* Rounded container */}
       <div className="w-[95%] mx-auto border rounded-xl border-[#0099ff]">
         <div className=" ">
-          <div className="w-[90%] mx-auto">
+          <div className="w-[97%] mx-auto">
             <h2 className="md:text-4xl text-2xl py-3 font-bold text-[#0099ff]">
               Meet Our Executives
             </h2>
@@ -105,10 +105,10 @@ const ExecutiveShow = () => {
             </motion.div> */}
         </div>
         {/* Cards container */}
-        <div className="md:w-[90%] md:mx-auto grid md:grid-cols-3 md:grid-rows-1 md:gap-x-4 gap-4 md:p-4 grid-cols-1 grid-rows-2 ">
+        <div className="md:w-[97%] md:mx-auto grid md:grid-cols-3 md:grid-rows-1 md:gap-x-4 gap-4 md:p-4 grid-cols-1 grid-rows-2 ">
           {executives.map((executive) => (
             <div
-              className="w-[90%] mx-auto border shadow-lg border-[#0099ff] h-auto mb-2 rounded-xl"
+              className="w-[90%] mx-auto border shadow-lg hover:scale-[1.01] border-[#0099ff] h-auto mb-2 rounded-xl"
               key={executive._id}
             >
               {/* Inner */}
@@ -137,7 +137,7 @@ const ExecutiveShow = () => {
       </div>
       {/* Button */}
       <div className="w-[90%] mx-auto">
-        <button className="capitalize text-[#0099ff] border-primary border-2 px-4 py-2 mb-4 hover:text-white hover:bg-[#0099ff] rounded-xl hover:text-primary">
+        <button className="capitalize text-[#0099ff] border-primary border-2 px-4 py-2 my-4 hover:text-white hover:bg-[#0099ff] rounded-xl hover:text-primary">
           <HashLink to={"/about/#executives"}>Meet Our executives</HashLink>
         </button>
       </div>

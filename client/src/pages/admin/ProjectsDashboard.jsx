@@ -31,17 +31,20 @@ export default function ProjectsDashboard() {
   if (error) return <p className="text-center py-5">{error}</p>;
 
   return (
-    <div className="flex bg-slate-200 min-h-screen">
+    <div className="flex  bg-slate-200 min-h-screen w-full">
       <Sidebar open={open} setOpen={setOpen} /> {/* Use the Sidebar component */}
       <div className="flex-grow p-4 md:p-7">
         {/* Layout */}
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="  w-full max-w-screen-lg mx-auto">
           {/* Dashboard title */}
-          <div className="py-5 flex flex-col md:flex-row justify-between items-center">
+
+          <div className="py-5 flex max-w-full flex-col  md:flex-row justify-between items-center">
             <h2 className='text-3xl md:text-5xl font-bold text-[#0099ff]'>Project Dashboard</h2>
-            <Link to={`/dash`} className='text-blue-500 hover:underline'>Back to Dashboard</Link>
+            <Link to={`/dash`} className='text-blue-500  hover:underline'>Back to Dashboard</Link>
           </div>
           {/* Create */}
+
+
           <div className="py-1 flex justify-end">
             <button className='bg-[#0099ff] text-white px-4 py-2 rounded-md font-bold'>
               <Link to={'/dash/addproject'}> Add Project</Link>
