@@ -51,7 +51,7 @@ const isAuthenticated = (req, res, next) => {
 // Use routes
 app.use('/api/events', eventRoutes);
 app.use('/api/executives', executiveRoutes);
-app.use('/api/libraries', galleryRoute);
+app.use('/api/gallery', galleryRoute);
 app.use('/api/projects', projectsRoutes);
 app.use('/api/auth', userRoutes);
 

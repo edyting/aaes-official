@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-function PostAuthor() {
+function PostAuthor(post) {
   return (
     <div className=''>
         <Link to={`/posts/users/id`} className='flex gap-5 items-start'>
             {/* <p src={avatar}/> */}
             <div className="">
                 <p variant='h6'>
-                    By: Manuel
+                   {post.author}
                 </p>
                 <small>
-                    Just Now
+                   {post.createdAt}
                 </small>
             </div>
         </Link>
