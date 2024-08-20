@@ -1,4 +1,5 @@
-import Executive from '../models/executive.js'; // Fixed the model import
+import Executive from '../models/executive.js';
+import cloudinary from '../utils/cloudinaryconfig.js'; // Import Cloudinary configuration
 
 // Utility function for handling errors
 const handleError = (res, error) => {
@@ -21,12 +22,20 @@ export const createExecutive = async (req, res) => {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
+        let photoUrl = null;
+        if (photo) {
+            const result = await cloudinary.v2.uploader.upload(photo.path, {
+                folder: 'executives',
+            });
+            photoUrl = result.secure_url;
+        }
+
         const newExecutive = new Executive({
             fullName,
             position,
             academicYear,
             programme,
-            photo: photo ? photo.path : null // Adjust according to file handling logic
+            photo: photoUrl // Save the Cloudinary URL
         });
 
         await newExecutive.save();
@@ -60,9 +69,9 @@ export const getExecutiveById = async (req, res) => {
         }
 
         // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid Executive ID format' });
-        }
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
+        // }
 
         const executive = await Executive.findById(id);
         if (!executive) {
@@ -79,17 +88,27 @@ export const updateExecutive = async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
+        const photo = req.file;
 
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
         }
 
         // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid Executive ID format' });
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
+        // }
+
+        let updatedPhotoUrl = updates.photo;
+
+        if (photo) {
+            const result = await cloudinary.v2.uploader.upload(photo.path, {
+                folder: 'executives',
+            });
+            updatedPhotoUrl = result.secure_url;
         }
 
-        const updatedExecutive = await Executive.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
+        const updatedExecutive = await Executive.findByIdAndUpdate(id, { ...updates, photo: updatedPhotoUrl }, { new: true, runValidators: true });
         if (!updatedExecutive) {
             return res.status(404).json({ message: 'Executive not found' });
         }
@@ -109,14 +128,15 @@ export const deleteExecutive = async (req, res) => {
         }
 
         // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid Executive ID format' });
-        }
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Executive ID format' });
+        // }
 
         const deletedExecutive = await Executive.findByIdAndDelete(id);
         if (!deletedExecutive) {
             return res.status(404).json({ message: 'Executive not found' });
         }
+
         res.status(200).json({ message: 'Executive deleted successfully' });
     } catch (error) {
         handleError(res, error);
