@@ -69,7 +69,7 @@ const Navbar = () => {
         <div className="">
             {/* Responsive Menu for Small Screens */}
             {isOpen ? (
-            <div className="md:hidden mx-0 top-0 left-0 absolute h-screen w-screen bg-[#0099ff] z-[100]">
+            <div className="md:hidden mx-0 top-0 left-0 absolut h-full overflow-y-hidden fixed w-full bg-[#0099ff] z-[100]">
                 
             <div className="text-white mt-3 p-4 text-2xl mb-0 pb-0 font-bold flex justify-between">
             <Link to="/">LOGO</Link>

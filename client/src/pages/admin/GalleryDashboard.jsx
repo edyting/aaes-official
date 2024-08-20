@@ -22,7 +22,7 @@ export default function GalleryDashboard() {
         setError('Failed to load events');
         setLoading(false);
       }
-    };
+    }; 
 
     loadGallery();
   }, []);
@@ -31,7 +31,7 @@ export default function GalleryDashboard() {
   if (error) return <p className="text-center py-5">{error}</p>;
 
   return (
-    <div className="flex bg-slate-200 min-h-screen">
+    <div className="flex bg-slate-200 min-h-screen w-full">
       <Sidebar open={open} setOpen={setOpen} /> {/* Use the Sidebar component */}
       <div className="flex-grow p-4 md:p-7">
         {/* Layout */}
@@ -68,21 +68,7 @@ export default function GalleryDashboard() {
                       <div>
                         <h2 className='text-lg md:text-xl font-semibold capitalize'>{gallery.caption || 'No Title'}</h2>
                       </div>
-                      {/* Description
-                      <div className="mt-2">
-                        <p className='text-sm md:text-base'>{executive.position ? `${executive.position.slice(0, 50)}...` : 'No Description'}</p>
-                      </div>
-                      {/* Post Date */}
-                      {/* <div>
-                        <h2 className='text-lg md:text-xl font-semibold capitalize'>{executive.academicYear || 'No Year'}</h2>
-                      </div>
-
-                      <div>
-                        <h2 className='text-lg md:text-xl font-semibold capitalize'>{executive.programme || 'No programme'}</h2>
-                      </div> */}
-                      {/* <div className="mt-2">
-                        <p className='text-sm md:text-base'>Date: {executive.time ? new Date(executive.time).toLocaleDateString() : 'Unknown Date'}</p>
-                      </div> */}
+                   
                     </div>
                     {/* CRUD buttons */}
                     <div className="flex flex-wrap items-center justify-between p-4 border-t border-gray-200 rounded-b-lg">

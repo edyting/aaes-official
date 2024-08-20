@@ -6,7 +6,7 @@ import {DummyPost} from '../../db'
 
 
 function ProjectDetails() {
-    // scroll tot top
+    // scroll to top
     useEffect(()=>{
         window.scrollTo(0,0)
       },[]);
@@ -15,10 +15,12 @@ function ProjectDetails() {
 
     //   paginating
        const [currentpage,setCurrentpage]=useState(1);
-       const [postperpage,setpostperpage]=useState(1);
+       const [postperpage,setpostperpage]=useState(6);
     //    logic
        const lastIndex = currentpage * postperpage;
        const firstIndex = lastIndex - postperpage;
+
+      //  getting last post and setting it as latest
        const currentproject = posts.slice(posts.length -1,posts.length)
 
 
@@ -52,6 +54,8 @@ function ProjectDetails() {
         <div className="text-center rounded-lg my-12">
                     <Link to='/projects' className='text-white bg-[#0099ff] font-semibold capitalize px-4 py-2 rounded-[0.5rem]'>View More Projecs</Link>
                   </div>
+
+         
     </div>
   )
 }

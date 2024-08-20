@@ -151,7 +151,7 @@ export const deleteProject = async (id) => {
 // Gallery CRUD operations
 export const getGalleryItems = async () => {
   try {
-    const response = await axiosInstance.get('/libraries');
+    const response = await axiosInstance.get('/gallery');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Fetching gallery items failed');
@@ -160,7 +160,7 @@ export const getGalleryItems = async () => {
 
 export const createGalleryItem = async (item) => {
   try {
-    const response = await axiosInstance.post('/libraries', item,{
+    const response = await axiosInstance.post('/gallery', item,{
       headers: { 'Content-Type': 'multipart/form-data' }, // For file uploads
     });
     return response.data;
@@ -171,7 +171,7 @@ export const createGalleryItem = async (item) => {
 
 export const updateGalleryItem = async (id, item) => {
   try {
-    const response = await axiosInstance.put(`/libraries/${id}`, item);
+    const response = await axiosInstance.put(`/gallery/${id}`, item);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Updating gallery item failed');
@@ -180,7 +180,7 @@ export const updateGalleryItem = async (id, item) => {
 
 export const deleteGalleryItem = async (id) => {
   try {
-    const response = await axiosInstance.delete(`/libraries/${id}`);
+    const response = await axiosInstance.delete(`/gallery/${id}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Deleting gallery item failed');

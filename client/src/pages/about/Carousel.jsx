@@ -32,7 +32,7 @@ export default function Carousel() {
   // autoplay={{delay:5000}}
   // pagination={{ clickable: true }}
   // scrollbar={{ draggable: true }}
-  className='w-full md:h-[90vh] '
+  className='w-full h-[25vh] md:h-[90vh] '
     >
       
 
@@ -43,12 +43,9 @@ export default function Carousel() {
             <div className=" relative bg-gradient-to-r from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] w-full h-full">
             <img className='absolute mix-blend-overlay ease-linear transition object-cover w-full h-full ' src={plan} alt="" />
             {/* welcome text */}
-            <div className="absolute text-white top-[45%] left-[10rem]">
-              <h2 className='text-[3rem] capitalize font-poppins font-bold '>Get to know more about us</h2>
+            <div className=" w-full h-full flex items-center justify-center  text-white">
+              <h2 className='md:text-[3rem] text-[2rem]  text-center capitalize font-poppins  font-bold '>Get to know more about us</h2>
               
-              <div className="pl-[2rem]">
-                
-              </div>
             </div>
             </div>
             

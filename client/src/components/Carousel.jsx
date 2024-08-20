@@ -86,11 +86,17 @@ export default function Carousel() {
             {/* content container */}
             <div className="my-auto ">
             <motion.h2 className='md:text-[3rem]  text-2xl capitalize font-poppins font-bold leading-relaxed '
-              
+              animate={{y:0,opacity:1}}
+              initial={{y:-700,opacity:0}}
+              transition={{ duration: 2.5,type: "spring", stiffness: 30 }}
               >{image.title}</motion.h2>
              
              <div className="  md:py-[1rem">
-             <p className=''>{image.text}</p>
+             <motion.p className=''
+               animate={{scale:1,opacity:1}}
+               initial={{scale:0,opacity:0}}
+               transition={{ duration: .7,type: "spring", stiffness: 20 }}
+             >{image.text}</motion.p>
              </div>
 
               <div className="pl-[2rem] my-8 ">

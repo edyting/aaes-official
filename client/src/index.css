@@ -30,3 +30,7 @@
   background-size: cover; 
   
  }
+
+ body{
+  scroll-behavior: smooth;
+ }

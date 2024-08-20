@@ -31,7 +31,7 @@ export default function EventsDashboard() {
   if (error) return <p className="text-center py-5">{error}</p>;
 
   return (
-    <div className="flex bg-slate-200 min-h-screen">
+    <div className="flex bg-slate-200 min-h-screen w-full">
       <Sidebar open={open} setOpen={setOpen} /> {/* Use the Sidebar component */}
       <div className="flex-grow p-4 md:p-7">
         {/* Layout */}
