@@ -46,7 +46,7 @@ function Upcoming() {
               intro: event.intro || 'No introduction available',
               time: event.time || 'No time specified',
               venue: event.venue || 'No venue specified',
-              img: event.cover || imagePlaceholder,
+              img: event.coverPhoto || imagePlaceholder,
               button: 'RSVP',
               id: event._id
             }))} />

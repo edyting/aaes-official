@@ -1,6 +1,5 @@
-// controllers/galleryController.js
-
-import Gallery from '../models/gallery.js';
+import Gallery from '../models/Gallery.js';
+import cloudinary from '../utils/cloudinaryconfig.js'; // Import the configured Cloudinary instance
 
 // Utility function for handling errors
 const handleError = (res, error) => {
@@ -8,101 +7,135 @@ const handleError = (res, error) => {
     res.status(500).json({ message: error.message || 'Internal Server Error' });
 };
 
-// Create a new gallery item
+// Create Gallery
 export const createGalleryItem = async (req, res) => {
     try {
-        const { caption, link } = req.body;
-        const cover = req.file; // Assuming cover is handled as file upload
+        const { caption, link} = req.body;
+        const cover = req.file; // Assuming photo is handled as file upload
+
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
+        }
 
         // Validate input
         if (!caption || !link) {
-            return res.status(400).json({ message: 'Caption and link are required' });
+            return res.status(400).json({ message: 'All fields are required' });
         }
 
-        const newGalleryItem = new Gallery({
+        let photoUrl = null;
+        if (cover) {
+            const result = await cloudinary.uploader.upload(cover.path, {
+                folder: 'Gallerys',
+            });
+            photoUrl = result.secure_url;
+        }
+
+        const newGallery = new Gallery({
             caption,
             link,
-            cover: cover ? cover.path : null // Adjust according to file handling logic
+            cover: photoUrl // Save the Cloudinary URL
         });
 
-        await newGalleryItem.save();
-        res.status(201).json(newGalleryItem);
+        await newGallery.save();
+        res.status(201).json(newGallery);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Get all gallery items
+// Get All Gallerys
 export const getAllGalleryItems = async (req, res) => {
     try {
-        const galleryItems = await Gallery.find();
-        res.status(200).json(galleryItems);
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
+        }
+
+        const Gallerys = await Gallery.find();
+        res.status(200).json(Gallerys);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Get a gallery item by ID
+// Get Gallery by ID
 export const getGalleryItemById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid gallery item ID format' });
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
         }
 
-        const galleryItem = await Gallery.findById(id);
-        if (!galleryItem) {
-            return res.status(404).json({ message: 'Gallery item not found' });
+        // Validate ID format
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Gallery ID format' });
+        // }
+
+        const Gallery = await Gallery.findById(id);
+        if (!Gallery) {
+            return res.status(404).json({ message: 'Gallery not found' });
         }
-        res.status(200).json(galleryItem);
+        res.status(200).json(Gallery);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Update a gallery item by ID
+// Update Gallery
 export const updateGalleryItem = async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
-        const cover = req.file; // Handle file upload if there's a new cover
+        const photo = req.file;
+
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
+        }
 
         // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid gallery item ID format' });
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Gallery ID format' });
+        // }
+
+        let updatedPhotoUrl = updates.photo;
+
+        if (photo) {
+            const result = await cloudinary.uploader.upload(photo.path, {
+                folder: 'Gallerys',
+            });
+            updatedPhotoUrl = result.secure_url;
         }
 
-        if (cover) {
-            updates.cover = cover.path;
+        const updatedGallery = await Gallery.findByIdAndUpdate(id, { ...updates, cover: updatedPhotoUrl }, { new: true, runValidators: true });
+        if (!updatedGallery) {
+            return res.status(404).json({ message: 'Gallery not found' });
         }
-
-        const updatedGalleryItem = await Gallery.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
-        if (!updatedGalleryItem) {
-            return res.status(404).json({ message: 'Gallery item not found' });
-        }
-        res.status(200).json(updatedGalleryItem);
+        res.status(200).json(updatedGallery);
     } catch (error) {
         handleError(res, error);
     }
 };
 
-// Delete a gallery item by ID
+// Delete Gallery
 export const deleteGalleryItem = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // Validate ID format
-        if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-            return res.status(400).json({ message: 'Invalid gallery item ID format' });
+        if (!req.session.userId) {
+            return res.status(401).json({ message: 'User not authenticated' });
         }
 
-        const deletedGalleryItem = await Gallery.findByIdAndDelete(id);
-        if (!deletedGalleryItem) {
-            return res.status(404).json({ message: 'Gallery item not found' });
+        // Validate ID format
+        // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        //     return res.status(400).json({ message: 'Invalid Gallery ID format' });
+        // }
+
+        const deletedGallery = await Gallery.findByIdAndDelete(id);
+        if (!deletedGallery) {
+            return res.status(404).json({ message: 'Gallery not found' });
         }
-        res.status(200).json({ message: 'Gallery item deleted successfully' });
+
+        res.status(200).json({ message: 'Gallery deleted successfully' });
     } catch (error) {
         handleError(res, error);
     }
