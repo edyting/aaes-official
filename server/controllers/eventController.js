@@ -1,4 +1,5 @@
-import Event  from "../models/events.js"
+import Event from "../models/events.js";
+import cloudinary from "../utils/cloudinaryconfig.js";
 
 // Utility function for handling errors
 const handleError = (res, error, statusCode = 500) => {
@@ -15,19 +16,26 @@ const handleSuccess = (res, data, statusCode = 200) => {
 export const createEvent = async (req, res) => {
     try {
         const { title, venue, time } = req.body;
-
-        const photo = req.file
+        const photo = req.file;
 
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
         }
 
         // Validate input
-        if (!title || !venue || !time ) {
-            return res.status(400).json({ message: 'Title, venue, time, and cover photo are required' });
+        if (!title || !venue || !time) {
+            return res.status(400).json({ message: 'Title, venue, and time are required' });
         }
 
-        const event = new Event({ title, venue, time, coverPhoto:photo ? photo.path :null });
+        let imageUrl = null;
+        if (photo) {
+            const result = await cloudinary.v2.uploader.upload(photo.path, {
+                folder: 'events',
+            });
+            imageUrl = result.secure_url;
+        }
+
+        const event = new Event({ title, venue, time, coverPhoto: imageUrl });
         await event.save();
         handleSuccess(res, event, 201);
     } catch (error) {
@@ -77,6 +85,7 @@ export const updateEvent = async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
+        const photo = req.file;
 
         if (!req.session.userId) {
             return res.status(401).json({ message: 'User not authenticated' });
@@ -86,16 +95,25 @@ export const updateEvent = async (req, res) => {
         //     return res.status(400).json({ message: 'Invalid event ID format' });
         // }
 
-        // Validate input
-        if (!updates.title || !updates.venue || !updates.time || !updates.coverPhoto) {
-            return res.status(400).json({ message: 'Title, venue, time, and cover photo are required' });
-        }
-
-        const event = await Event.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
+        const event = await Event.findById(id);
         if (!event) {
             return res.status(404).json({ message: 'Event not found' });
         }
-        handleSuccess(res, event);
+
+        if (photo) {
+            // Upload new photo to Cloudinary
+            const result = await cloudinary.v2.uploader.upload(photo.path, {
+                folder: 'events',
+            });
+            updates.coverPhoto = result.secure_url;
+
+            // Optionally delete the old photo from Cloudinary
+            const publicId = event.coverPhoto.split('/').pop().split('.')[0];
+            await cloudinary.v2.uploader.destroy(`events/${publicId}`);
+        }
+
+        const updatedEvent = await Event.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
+        handleSuccess(res, updatedEvent);
     } catch (error) {
         handleError(res, error);
     }
@@ -118,6 +136,13 @@ export const deleteEvent = async (req, res) => {
         if (!event) {
             return res.status(404).json({ message: 'Event not found' });
         }
+
+        // Optionally delete the cover photo from Cloudinary
+        if (event.coverPhoto) {
+            const publicId = event.coverPhoto.split('/').pop().split('.')[0];
+            await cloudinary.v2.uploader.destroy(`events/${publicId}`);
+        }
+
         handleSuccess(res, { message: 'Event deleted successfully' });
     } catch (error) {
         handleError(res, error);
